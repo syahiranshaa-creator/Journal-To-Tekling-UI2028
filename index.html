@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physics Learning Lab ♡ Pink Edition — TKA Fisika 2026 & UI TEKLING</title>
+<style>
+:root{--bg:#f4f7f8;--paper:#fff;--ink:#172d39;--muted:#60727d;--line:#dce5e8;--brand:#176b68;--brand2:#dff2ef;--accent:#d58a43;--good:#18794e;--bad:#b43e35;--shadow:0 8px 26px #12323d0d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.layout{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:#123a45;color:white;padding:24px 17px;overflow:auto;z-index:5}.brand{font-size:1.2rem;font-weight:800;line-height:1.25}.brand small{display:block;font-size:.76rem;letter-spacing:1.4px;color:#b6d7d6;margin-top:7px}.nav{display:grid;gap:6px;margin-top:30px}.nav button{border:0;background:transparent;color:#d5e5e7;text-align:left;padding:11px 12px;border-radius:10px}.nav button:hover,.nav button.active{background:#285a64;color:white}.sidefoot{margin-top:30px;font-size:.78rem;color:#b6cdd1}.main{margin-left:255px;padding:28px;max-width:1450px}.hero{background:linear-gradient(125deg,#123a45,#176b68);color:white;border-radius:22px;padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"∑";position:absolute;font-size:13rem;line-height:1;right:25px;bottom:-45px;color:#ffffff12;font-weight:800}.eyebrow{text-transform:uppercase;letter-spacing:1.8px;font-size:.76rem;color:#bfe2dc;font-weight:750}.hero h1{font-size:clamp(2rem,4vw,3.3rem);line-height:1.12;margin:13px 0}.hero p{max-width:690px;color:#e0eeee}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.chip{border:1px solid #ffffff55;padding:5px 10px;border-radius:30px;font-size:.82rem}.toprow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.mobilemenu{display:none}.page{display:none}.page.active{display:block}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:28px 0 13px}.sectionhead h2{margin:0;font-size:1.55rem}.muted{color:var(--muted)}.small{font-size:.87rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:var(--shadow)}.topiccard{cursor:pointer;transition:transform .15s,border .15s}.topiccard:hover{transform:translateY(-2px);border-color:#7ab9b1}.topiccard h3{margin:7px 0}.topicnum{font-size:.78rem;color:var(--brand);font-weight:800;letter-spacing:1px}.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:9px 13px;border-radius:9px;font-weight:650}.btn:hover{border-color:var(--brand)}.btn.primary{background:var(--brand);border-color:var(--brand);color:white}.btn.ghost{background:transparent}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.progress{height:8px;background:#e5eded;border-radius:20px;overflow:hidden}.progress div{height:100%;width:0;background:var(--brand);transition:width .2s}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:14px;background:#f2f8f7;border-radius:12px}.stat strong{font-size:1.4rem;display:block}.tag{display:inline-block;background:var(--brand2);color:#145a56;padding:3px 8px;border-radius:30px;font-size:.75rem;font-weight:750}.field{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink)}textarea.field{resize:vertical}.formula{padding:13px;background:#f4f8f8;border:1px solid #e4eded;border-radius:10px;margin:10px 0}.eq{font-family:Cambria,Georgia,serif;font-size:1.22rem;font-weight:700;margin:4px 0;overflow-wrap:anywhere}.formula h4{margin:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}.callout{border-left:4px solid var(--brand);background:#eff8f6;padding:12px 14px;border-radius:0 10px 10px 0;margin:12px 0}.warning{border-left-color:var(--accent);background:#fff7ed}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f4f8f8}.question{font-size:1.1rem;font-weight:750;margin:15px 0}.answer{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border:1px solid var(--line);background:white;border-radius:10px;color:var(--ink)}.answer:hover:not(:disabled){border-color:var(--brand);background:#f6fbfa}.answer.correct{border-color:var(--good);background:#eaf7f0}.answer.wrong{border-color:var(--bad);background:#fff0ef}.answer:disabled{cursor:default}.feedback{padding:13px;border-radius:10px;background:#eff8f6;margin-top:12px}.hide{display:none!important}.step{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.step:last-child{border:0}.stepno{width:34px;height:34px;background:var(--brand2);color:var(--brand);font-weight:800;border-radius:10px;display:grid;place-items:center}.symbol{font:700 1.2rem Cambria,Georgia,serif;min-width:65px}.footer{padding:30px 0 10px;color:var(--muted);font-size:.8rem}.link{color:var(--brand);font-weight:700}.checklist label{display:flex;gap:9px;padding:8px 0}.checklist input{accent-color:var(--brand);width:18px;height:18px}.sourcebox{font-size:.9rem;background:#f7fafb;border:1px solid var(--line);padding:15px;border-radius:12px}.resource-card{display:flex;flex-direction:column;gap:8px}.resource-card .row{margin-top:auto}.levelpath{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.levelstep{background:#f2f8f7;border:1px solid var(--line);padding:12px;border-radius:12px}.game-visual{font-size:2.2rem;text-align:center;padding:18px;background:#f4f8f8;border-radius:12px}.game-choice{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid var(--line);background:#fff;border-radius:10px;color:var(--ink)}.game-choice:hover{border-color:var(--brand);background:#f6fbfa}.game-choice:disabled{cursor:default}.game-status{padding:12px;border-radius:10px;background:#eff8f6;margin-top:12px}.daily-meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.summary-result{padding:14px;border-radius:12px;border:1px solid var(--line);background:#f7fafb;margin-top:12px}.daily-option{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid var(--line);background:white;border-radius:10px;color:var(--ink)}.daily-option:disabled{cursor:default}@media(max-width:760px){.levelpath{grid-template-columns:1fr 1fr}}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:220px}.main{margin-left:220px;padding:20px}}
+@media(max-width:760px){.sidebar{position:static;width:auto;padding:15px;display:none}.sidebar.open{display:block}.main{margin:0;padding:14px}.mobilemenu{display:inline-flex}.hero{padding:24px}.grid,.two{grid-template-columns:1fr}.statgrid{grid-template-columns:repeat(3,1fr)}.sectionhead{align-items:start;flex-direction:column}.toprow{align-items:center}.sidefoot{margin-top:15px}}
+@media print{.sidebar,.toprow,.btn,.nav{display:none!important}.main{margin:0;padding:0}.page{display:block!important}.card,.panel{box-shadow:none;break-inside:avoid}.hero{background:#eee;color:#111}.hero p,.eyebrow{color:#333}}
+
+.keyword-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:10px;margin-top:10px}.keyword-card{border:1px solid var(--line);border-radius:12px;padding:13px;background:var(--surface)}.keyword-card h3{font-size:1rem;margin:0 0 7px}.keyword-card .keyword-topic{font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:6px}.keyword-card p{margin:5px 0;font-size:.91rem}.keyword-card .keyword-hint{color:var(--muted)}
+
+
+/* Pink edition theme */
+:root{--bg:#fff5fa;--paper:#ffffff;--ink:#49263b;--muted:#8a6c7d;--line:#f0d6e4;--brand:#c83f82;--brand2:#ffe2ef;--accent:#a94f8a;--good:#247a55;--bad:#b43e61;--shadow:0 8px 26px #7d24520d;--surface:#fffafd}
+body{background:var(--bg)}
+.sidebar{background:linear-gradient(180deg,#7b2455,#a83270);color:#fff}
+.brand small,.sidefoot{color:#ffd8e9}
+.nav button{color:#ffe7f1}
+.nav button:hover,.nav button.active{background:#c64c8a;color:white}
+.hero{background:linear-gradient(125deg,#8b285d,#d84d91)}
+.eyebrow{color:#ffe0ef}
+.stat{background:#fff0f7}
+.tag{background:#ffe2ef;color:#9a285f}
+.formula{background:#fff5fa;border-color:#f6dfeb}
+.callout{border-left-color:var(--brand);background:#fff0f7}
+.callout.warning{border-left-color:var(--accent);background:#fff7fb}
+th{background:#fff0f7}
+.answer:hover:not(:disabled),.game-choice:hover,.daily-option:hover{border-color:var(--brand);background:#fff5fa}
+.answer.correct{border-color:var(--good);background:#eaf7f0}
+.answer.wrong{border-color:var(--bad);background:#fff0f3}
+.feedback,.game-status{background:#fff0f7}
+.progress div{background:linear-gradient(90deg,#e95d9f,#b83176)}
+.topiccard:hover{border-color:#e78bb8}
+.link{color:#b72f73}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn:hover{border-color:var(--brand)}
+.sourcebox{background:#fffafd}
+
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">Physics Learning Lab<small>TKA FISIKA · 2026</small></div>
+  <nav class="nav" id="nav">
+    <button class="active" data-page="home">⌂ &nbsp; Beranda</button>
+    <button data-page="materi">▤ &nbsp; Materi & Rumus</button>
+    <button data-page="video">▶ &nbsp; Video & Persiapan</button>
+    <button data-page="harian">☀ &nbsp; Belajar Harian</button>
+    <button data-page="kesimpulan">✎ &nbsp; Kesimpulan Saya</button>
+    <button data-page="katakunci">⌕ &nbsp; Kata Kunci Soal</button>
+    <button data-page="uitekling">♡ &nbsp; UI TEKLING & Motivasi</button>
+    <button data-page="bedah">⌕ &nbsp; Bedah Soal</button>
+    <button data-page="latihan">✓ &nbsp; Latihan Bertahap</button>
+    <button data-page="game">♟ &nbsp; Game Logika Fisika</button>
+    <button data-page="kamus">∑ &nbsp; Kamus Simbol</button>
+    <button data-page="rencana">▦ &nbsp; Checklist Belajar</button>
+  </nav>
+  <div class="sidefoot">Pelan-pelan, konsisten, sampai tujuan. ♡</div>
+</aside>
+<main class="main">
+  <div class="toprow"><button class="btn mobilemenu" id="menuBtn">☰ Menu</button><span class="muted small">Panduan belajar mandiri · SMA</span><button class="btn" id="printBtn">Cetak / Simpan PDF</button></div>
+
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div class="eyebrow">Learning dashboard · SMA</div>
+      <h1>Physics Learning Lab</h1>
+      <p>Guide learner TKA Fisika 2026: pahami konsep, temukan rumus yang tepat, bedah maksud soal, dan latihan bertingkat dengan pembahasan.</p>
+      <div class="chips"><span class="chip">Rumus dasar per bab</span><span class="chip">Strategi 7 langkah</span><span class="chip">Latihan bertingkat + game logika</span><span class="chip">Bisa offline</span></div>
+      <div class="row" style="margin-top:22px"><button class="btn primary" id="startBtn">Mulai belajar →</button><button class="btn ghost" style="color:white;border-color:#ffffff80" id="toQuiz">Mulai dari Level 1</button></div>
+    </div>
+    <div class="sectionhead"><div><h2>Progress belajarmu</h2><div class="muted small">Tersimpan di browser ini selama data lokal tidak dihapus.</div></div></div>
+    <div class="panel">
+      <div class="statgrid"><div class="stat"><span class="small muted">Dijawab</span><strong id="statAnswered">0</strong></div><div class="stat"><span class="small muted">Benar</span><strong id="statCorrect">0</strong></div><div class="stat"><span class="small muted">Akurasi</span><strong id="statAccuracy">—</strong></div></div>
+      <div class="progress" style="margin-top:15px"><div id="progressBar"></div></div>
+    </div>
+    <div class="sectionhead"><div><h2>Peta materi</h2><div class="muted">Pilih kelompok untuk membuka ringkasan konsep dan rumus.</div></div></div>
+    <div class="grid" id="topicCards"></div>
+    <div class="sectionhead"><h2>Rute belajar yang disarankan</h2></div>
+    <div class="grid">
+      <div class="card"><span class="tag">Tahap 1</span><h3>Pahami konsep</h3><p class="muted small">Baca fenomena, arti besaran, satuan, dan kondisi rumus. Jangan mulai dari hafalan.</p></div>
+      <div class="card"><span class="tag">Tahap 2</span><h3>Bedah soal</h3><p class="muted small">Tulis diketahui, ditanya, gambar model, pilih hukum, hitung, dan evaluasi.</p></div>
+      <div class="card"><span class="tag">Tahap 3</span><h3>Uji penalaran</h3><p class="muted small">Latih grafik, perbandingan kondisi, eksperimen, dan analisis kesalahan.</p></div>
+      <div class="card"><span class="tag">Setiap hari</span><h3>Belajar Harian</h3><p class="muted small">Satu konsep dan kuis mini berganti sesuai tanggal perangkat.</p><button class="btn" onclick="go('harian')">Buka belajar harian →</button></div>
+      <div class="card"><span class="tag">Target kampus</span><h3>UI TEKLING & Motivasi</h3><p class="muted small">Motivasi harian, gambaran Teknik Lingkungan UI, dan pintasan ke sumber resmi.</p><button class="btn" onclick="go('uitekling')">Buka target UI →</button></div>
+      <div class="card"><span class="tag">Refleksi</span><h3>Kesimpulan Saya</h3><p class="muted small">Rangkum dengan kata-katamu sendiri dan periksa kelengkapannya.</p><button class="btn" onclick="go('kesimpulan')">Tulis kesimpulan →</button></div>
+    </div>
+    <div class="sectionhead"><h2>Acuan resmi</h2></div>
+    <div class="sourcebox">Gunakan halaman Pusmendik untuk memeriksa cakupan dan dokumen resmi TKA Fisika SMA. Latihan dalam website ini adalah materi tambahan buatan, bukan soal resmi atau prediksi ujian.<br><a class="link" href="https://pusmendik.kemendikdasmen.go.id/tka/tka/view/mata-pelajaran-pilihan/sma/fisika" target="_blank" rel="noopener">Buka kisi-kisi resmi TKA Fisika ↗</a></div>
+  </section>
+
+  <section class="page" id="page-uitekling">
+    <div class="hero" style="background:linear-gradient(125deg,#8b285d,#e96aa6)">
+      <div class="eyebrow">Your goal, your pace · UI edition</div>
+      <h1>One day, one step closer to UI ♡</h1>
+      <p>Kamu nggak harus langsung hebat hari ini. Kamu cuma perlu terus membangun kebiasaan belajar yang bisa kamu pertahankan.</p>
+      <div class="chips"><span class="chip">Teknik Lingkungan UI</span><span class="chip">Belajar konsisten</span><span class="chip">Sains untuk dampak nyata</span></div>
+    </div>
+    <div class="sectionhead"><div><h2>Pesan untuk hari ini</h2><div class="muted small" id="motivationDate"></div></div><button class="btn" id="newMotivation">Ganti pesan ♡</button></div>
+    <div class="panel" style="background:linear-gradient(135deg,#fff,#fff0f7);border-color:#f0c4dc">
+      <div class="tag">Daily reminder</div><h2 id="motivationQuote" style="font-size:1.5rem;line-height:1.4"></h2><p id="motivationNote" class="muted"></p>
+    </div>
+    <div class="sectionhead"><div><h2>Kenalan dengan Teknik Lingkungan UI</h2><div class="muted">Info dasar dari halaman resmi FTUI; detail penerimaan bisa berubah, jadi cek sumber resminya sebelum mengambil keputusan.</div></div></div>
+    <div class="grid">
+      <div class="card"><span class="tag">Fokus studi</span><h3>Air, limbah, dan pencemaran</h3><p class="small muted">FTUI menjelaskan cakupan program meliputi pengelolaan limbah cair dan padat, air bersih, sanitasi lingkungan, pencemaran udara, serta analisis mengenai dampak lingkungan (AMDAL).</p></div>
+      <div class="card"><span class="tag">Gambaran karier</span><h3>Merancang solusi lingkungan</h3><p class="small muted">Profil lulusan mencakup perencanaan, perancangan, pelaksanaan, dan pengendalian sistem teknik lingkungan dengan mempertimbangkan aspek sosial, ekonomi, dan lingkungan.</p></div>
+      <div class="card"><span class="tag">Kebiasaan yang membantu</span><h3>Bangun fondasi STEM</h3><p class="small muted">Latih matematika, fisika, kimia, membaca grafik/data, menulis kesimpulan berbasis bukti, dan menjelaskan alasan di balik jawaban.</p></div>
+    </div>
+    <div class="sectionhead"><div><h2>Pusat cek informasi resmi</h2><div class="muted small">Tautan ini membuka sumber resmi agar kamu bisa melihat informasi terbaru yang tersedia saat dibuka.</div></div></div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between;align-items:flex-start"><div><h3 style="margin-top:0">Program Sarjana FTUI</h3><p class="small muted">Cakupan program, profil lulusan, dan informasi akademik Teknik Lingkungan.</p></div><a class="btn primary" href="https://eng.ui.ac.id/reguler/" target="_blank" rel="noopener">Buka FTUI ↗</a></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+      <div class="row" style="justify-content:space-between;align-items:flex-start"><div><h3 style="margin-top:0">Penerimaan UI</h3><p class="small muted">Periksa jalur masuk, persyaratan, jadwal, daya tampung, dan biaya terbaru. Pastikan memilih program dan jalur yang tepat.</p></div><a class="btn primary" href="https://penerimaan.ui.ac.id/" target="_blank" rel="noopener">Buka Penerimaan UI ↗</a></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+      <div class="row" style="justify-content:space-between;align-items:flex-start"><div><h3 style="margin-top:0">Daftar program & daya tampung</h3><p class="small muted">Halaman program UI untuk melihat daftar prodi dan informasi daya tampung yang dipublikasikan.</p></div><a class="btn" href="https://penerimaan.ui.ac.id/ppkb/program/81" target="_blank" rel="noopener">Buka daftar program ↗</a></div>
+      <p class="small muted" style="margin-bottom:0">Catatan: data yang tampil di halaman penerimaan dapat berbeda menurut tahun dan jalur. Jangan menganggap angka tahun sebelumnya sebagai kuota tahun berjalan.</p>
+    </div>
+    <div class="callout warning"><b>Jujur soal update:</b> motivasi di halaman ini berganti otomatis berdasarkan tanggal perangkat dan tetap bisa dipakai offline. Informasi UI tidak diambil otomatis ke dalam file ini; tombol di atas membuka situs resmi yang dapat kamu cek langsung. Jadi, halaman ini tidak akan mengarang berita baru atau menjanjikan update real-time.</div>
+    <div class="sectionhead"><h2>Target kecil minggu ini</h2></div>
+    <div class="panel checklist" id="uiGoalChecklist">
+      <label><input type="checkbox" data-uigoal="1"><span>Belajar fisika atau matematika 25 menit dengan fokus.</span></label>
+      <label><input type="checkbox" data-uigoal="2"><span>Mengulang konsep kimia dan menuliskan 3 poin yang kupahami.</span></label>
+      <label><input type="checkbox" data-uigoal="3"><span>Mengerjakan latihan, lalu mengevaluasi kesalahan tanpa menghakimi diri sendiri.</span></label>
+      <label><input type="checkbox" data-uigoal="4"><span>Membuka sumber resmi UI untuk mengecek informasi yang benar-benar terbaru.</span></label>
+    </div>
+    <p class="small muted">Checklist target tersimpan di browser perangkat ini saja.</p>
+  </section>
+
+  <section class="page" id="page-materi">
+    <div class="sectionhead"><div><h2>Materi & rumus dasar</h2><div class="muted">Pilih bab, cari rumus, lalu periksa kondisi penggunaannya.</div></div></div>
+    <input class="field" id="formulaSearch" placeholder="Cari rumus atau kata kunci, mis. impuls, Ohm, Bernoulli…" aria-label="Cari rumus">
+    <div class="nav" id="topicTabs" style="display:flex;flex-wrap:wrap;gap:7px;margin:15px 0"></div>
+    <div id="topicDetail"></div>
+    <div class="callout warning"><b>Ingat:</b> rumus hanya berlaku pada kondisi tertentu. Perhatikan asumsi, arah, tanda, dan satuan pada setiap soal.</div>
+  </section>
+
+  <section class="page" id="page-video">
+    <div class="sectionhead"><div><h2>Video & persiapan sebelum latihan</h2><div class="muted">Urutan yang disarankan: baca konsep → tonton penjelasan → kerjakan contoh → baru masuk latihan bertingkat.</div></div></div>
+    <div class="callout"><b>Aturan belajar:</b> jangan menonton pasif. Sebelum video, tulis 2 pertanyaan. Saat menonton, catat konsep, satu rumus beserta syaratnya, dan satu contoh. Setelah video, tutup catatan lalu jelaskan ulang dengan bahasamu sendiri.</div>
+    <div class="sectionhead"><h2>Urutan belajar sebelum soal</h2></div>
+    <div class="levelpath">
+      <div class="levelstep"><span class="tag">1 · 10 menit</span><h3>Pratinjau</h3><p class="small muted">Baca ringkasan bab dan tandai istilah yang belum dipahami.</p></div>
+      <div class="levelstep"><span class="tag">2 · 15–25 menit</span><h3>Video aktif</h3><p class="small muted">Tonton satu topik saja. Jeda ketika contoh soal dimulai dan coba sendiri.</p></div>
+      <div class="levelstep"><span class="tag">3 · 10 menit</span><h3>Recall</h3><p class="small muted">Tanpa melihat, tulis ide utama, rumus, arti simbol, dan kondisi penggunaan.</p></div>
+      <div class="levelstep"><span class="tag">4 · 10–20 menit</span><h3>Contoh → latihan</h3><p class="small muted">Bedah satu contoh terlebih dahulu, lalu mulai dari Level 1.</p></div>
+    </div>
+    <div class="sectionhead"><div><h2>Referensi video per bab</h2><div class="muted small">Tautan pencarian YouTube agar kamu bisa memilih video yang sesuai dan terbaru. Ini bukan endorsement atau daftar video resmi TKA.</div></div></div>
+    <div class="grid">
+      <article class="card resource-card"><span class="tag">Bab 1</span><h3>Kinematika & grafik gerak</h3><p class="small muted">Cari penjelasan GLB, GLBB, grafik x–t/v–t, gerak parabola, dan gerak melingkar.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+kinematika+GLB+GLBB+grafik+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="kin">Baca materi</button></div></article>
+      <article class="card resource-card"><span class="tag">Bab 2</span><h3>Dinamika & momentum</h3><p class="small muted">Fokus pada diagram gaya, Hukum Newton, gesekan, impuls, momentum, dan tumbukan.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+Hukum+Newton+momentum+impuls+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="din">Baca materi</button></div></article>
+      <article class="card resource-card"><span class="tag">Bab 3</span><h3>Fluida</h3><p class="small muted">Pahami tekanan, Archimedes, kontinuitas, dan Bernoulli melalui ilustrasi aliran.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+fluida+statis+dinamis+Bernoulli+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="flu">Baca materi</button></div></article>
+      <article class="card resource-card"><span class="tag">Bab 4</span><h3>Gelombang, bunyi & optik</h3><p class="small muted">Pelajari v = fλ, intensitas, pembiasan, cermin, dan lensa dengan gambar sinar.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+gelombang+bunyi+optik+lensa+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="gel">Baca materi</button></div></article>
+      <article class="card resource-card"><span class="tag">Bab 5</span><h3>Kalor & termodinamika</h3><p class="small muted">Bedakan kalor, suhu, perubahan wujud, gas ideal, usaha, dan Hukum I Termodinamika.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+kalor+gas+ideal+termodinamika+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="kal">Baca materi</button></div></article>
+      <article class="card resource-card"><span class="tag">Bab 6</span><h3>Kelistrikan</h3><p class="small muted">Latih Hukum Ohm, seri-paralel, daya, medan listrik, dan Kirchhoff.</p><div class="row"><a class="btn primary" href="https://www.youtube.com/results?search_query=fisika+SMA+listrik+dinamis+Hukum+Kirchhoff+pembahasan" target="_blank" rel="noopener">Cari video ↗</a><button class="btn" data-open-topic="lis">Baca materi</button></div></article>
+    </div>
+    <div class="sectionhead"><h2>Checklist siap latihan</h2></div>
+    <div class="panel checklist" id="preflight">
+      <label><input type="checkbox" data-preflight="0"><span>Aku sudah menjelaskan konsep utama tanpa membaca.</span></label>
+      <label><input type="checkbox" data-preflight="1"><span>Aku tahu arti setiap simbol dan satuan yang kupakai.</span></label>
+      <label><input type="checkbox" data-preflight="2"><span>Aku tahu kondisi/asumsi rumus yang kupilih.</span></label>
+      <label><input type="checkbox" data-preflight="3"><span>Aku sudah mencoba contoh soal sebelum melihat pembahasan.</span></label>
+      <p class="small muted" id="preflightStatus">Checklist ini hanya membantu mengukur kesiapan; kamu tetap boleh mulai latihan kapan saja.</p>
+      <button class="btn primary" id="preflightGo">Aku siap — mulai latihan →</button>
+    </div>
+    <div class="sourcebox" style="margin-top:16px"><b>Acuan cakupan:</b> periksa dokumen resmi pada <a class="link" href="https://pusmendik.kemendikdasmen.go.id/tka/tka/view/mata-pelajaran-pilihan/sma/fisika" target="_blank" rel="noopener">halaman Pusmendik TKA Fisika SMA ↗</a>. Website ini adalah pendamping belajar; latihan dan game merupakan konten tambahan, bukan soal resmi.</div>
+  </section>
+
+  <section class="page" id="page-harian">
+    <div class="sectionhead"><div><h2>Belajar Harian</h2><div class="muted">Satu konsep fokus, satu contoh singkat, dan kuis interaktif setiap hari.</div></div></div>
+    <div class="callout"><b>Bagaimana jadwal harian bekerja?</b> Materi berganti otomatis berdasarkan tanggal perangkat dan bisa digunakan offline. Ini rotasi harian dari materi yang sudah disimpan di website, bukan pembaruan internet otomatis. Untuk menambah materi baru secara nyata, file perlu diperbarui.</div>
+    <div class="panel">
+      <div class="daily-meta"><span class="tag" id="dailyDate"></span><span class="tag" id="dailyTopic"></span><span class="tag">5–10 menit</span></div>
+      <h2 id="dailyTitle">Konsep hari ini</h2><p id="dailyIntro"></p>
+      <div class="formula"><h4>Ingat hubungan ini</h4><div class="eq" id="dailyFormula"></div><p class="small muted" id="dailyConditions"></p></div>
+      <h3>Contoh penalaran</h3><p id="dailyExample"></p>
+      <div class="callout warning"><b>Coba recall:</b> jelaskan dengan kata-katamu sendiri apa arti hubungan fisika tersebut, kapan berlaku, dan apa yang berubah jika satu besaran diubah.</div>
+      <div class="sectionhead"><h2>Kuis mini hari ini</h2><span class="muted small" id="dailyProgress">Belum dijawab</span></div>
+      <p class="question" id="dailyQuestion"></p><div id="dailyChoices"></div>
+      <div id="dailyFeedback" class="feedback hide" aria-live="polite"></div>
+      <div class="row" style="margin-top:14px"><button class="btn" id="dailyRetry">Coba lagi</button><button class="btn primary" id="dailyToSummary">Tulis kesimpulan tentang materi ini →</button></div>
+    </div>
+    <div class="sourcebox" style="margin-top:14px"><b>Sistem pengulangan:</b> besok konsep fokus akan berganti. Kamu tetap bisa membuka bab terkait di bagian Materi & Rumus, lalu mengulang kuis kapan saja.</div>
+  </section>
+  <section class="page" id="page-kesimpulan">
+    <div class="sectionhead"><div><h2>Kesimpulan Saya</h2><div class="muted">Tulis pemahamanmu sendiri. Website memberi pemeriksaan awal, lalu kamu bisa mengirim tulisan ke ChatGPT untuk verifikasi konsep yang lebih teliti.</div></div></div>
+    <div class="callout warning"><b>Transparansi:</b> pemeriksaan otomatis di halaman ini bekerja secara offline dengan memeriksa kelengkapan dan istilah kunci. Itu bukan penilaian semantik penuh, jadi tidak bisa menjamin kesimpulanmu benar. Untuk verifikasi yang sebenarnya, salin tulisanmu dan kirim ke ChatGPT agar bisa diperiksa per klaim.</div>
+    <div class="panel">
+      <label for="summaryTopic"><b>Pilih topik</b></label>
+      <select id="summaryTopic" class="field" style="margin:7px 0 14px"><option value="kin">Kinematika</option><option value="din">Dinamika & momentum</option><option value="flu">Fluida</option><option value="gel">Gelombang, bunyi & optik</option><option value="kal">Kalor & termodinamika</option><option value="lis">Kelistrikan</option><option value="all">Semua materi / rangkuman besar</option></select>
+      <label for="summaryText"><b>Kesimpulan dengan bahasamu sendiri</b></label>
+      <textarea class="field" id="summaryText" rows="10" placeholder="Tulis konsep inti, hubungan antarbesaran, rumus beserta arti simbol, syarat penggunaan, dan satu contoh atau miskonsepsi."></textarea>
+      <p class="small muted">Coba tulis: (1) konsep inti, (2) hubungan antarbesaran, (3) rumus dan arti simbol, (4) syarat penggunaan, (5) contoh atau miskonsepsi yang perlu dihindari.</p>
+      <div class="row"><button class="btn primary" id="verifySummary">Periksa kelengkapan kesimpulan</button><button class="btn" id="saveSummary">Simpan di browser</button><button class="btn" id="copySummary">Salin untuk verifikasi ChatGPT</button></div>
+      <div id="summaryResult" class="summary-result hide" aria-live="polite"></div>
+    </div>
+    <div class="sectionhead"><h2>Checklist kualitas kesimpulan</h2></div>
+    <div class="panel checklist"><label><input type="checkbox" id="sumCheck1"><span>Definisi atau konsep utamanya akurat.</span></label><label><input type="checkbox" id="sumCheck2"><span>Hubungan sebab-akibat atau antarbesaran dijelaskan.</span></label><label><input type="checkbox" id="sumCheck3"><span>Rumus, simbol, dan satuan tidak tertukar.</span></label><label><input type="checkbox" id="sumCheck4"><span>Syarat dan asumsi penggunaan rumus disebutkan.</span></label><label><input type="checkbox" id="sumCheck5"><span>Ada contoh, penerapan, atau batasan konsep.</span></label></div>
+    <div class="callout">Setelah menekan <b>Salin untuk verifikasi ChatGPT</b>, tempelkan hasilnya di chat ini. Aku bisa menandai klaim yang benar, kurang lengkap, atau perlu diperbaiki dan menjelaskan alasannya.</div>
+  </section>
+  <section class="page" id="page-katakunci">
+    <div class="sectionhead"><div><h2>Kata-Kata yang Sering Ada di Soal</h2><div class="muted">Cari petunjuk bahasa soal, lalu hubungkan dengan konsep fisika yang sesuai.</div></div></div>
+    <div class="callout warning"><b>Ingat:</b> kata kunci adalah petunjuk, bukan tombol ajaib untuk memilih rumus. Baca konteks seluruh soal dan periksa kondisi yang disebutkan.</div>
+    <div class="panel">
+      <label for="keywordSearch"><b>Cari kata atau konsep</b></label>
+      <input class="field" id="keywordSearch" type="search" placeholder="Contoh: diam, licin, kedalaman, menyatu..." style="margin:7px 0 12px">
+      <label for="keywordCategory"><b>Filter topik</b></label>
+      <select class="field" id="keywordCategory" style="margin:7px 0 14px">
+        <option value="all">Semua topik</option><option value="Kinematika">Kinematika</option><option value="Dinamika & gaya">Dinamika & gaya</option><option value="Usaha & energi">Usaha & energi</option><option value="Momentum & impuls">Momentum & impuls</option><option value="Fluida">Fluida</option><option value="Gelombang, bunyi & optik">Gelombang, bunyi & optik</option><option value="Kalor & termodinamika">Kalor & termodinamika</option><option value="Kelistrikan">Kelistrikan</option><option value="Kata yang menjebak">Kata yang menjebak</option>
+      </select>
+      <p class="small muted" id="keywordCount" aria-live="polite"></p>
+      <div id="keywordResults" class="keyword-results"></div>
+    </div>
+    <div class="callout"><b>Strategi 4 langkah:</b> (1) lingkari kata petunjuk, (2) tulis besaran yang diketahui, (3) tentukan yang ditanya, (4) pilih konsep dan cek asumsi sebelum menghitung.</div>
+  </section>
+  <section class="page" id="page-bedah">
+    <div class="sectionhead"><div><h2>Bedah soal step-by-step</h2><div class="muted">Latih kebiasaan mencari maksud soal sebelum menghitung.</div></div></div>
+    <div class="panel" id="stepsList"></div>
+    <div class="sectionhead"><h2>Contoh pembahasan lengkap</h2></div>
+    <div class="panel">
+      <span class="tag">Dinamika · Penerapan</span>
+      <p class="question">Sebuah balok bermassa 4 kg ditarik mendatar dengan gaya 20 N. Gaya geseknya 4 N. Berapakah percepatannya?</p>
+      <button class="btn primary" id="showExample">Tampilkan pembahasan</button>
+      <div id="exampleSolution" class="hide" style="margin-top:12px">
+        <div class="formula"><b>1. Fenomena</b><p>Balok mendapat gaya tarik dan gaya gesek yang berlawanan arah.</p></div>
+        <div class="formula"><b>2. Diketahui</b><div class="eq">m = 4 kg; F tarik = 20 N; f = 4 N</div></div>
+        <div class="formula"><b>3. Ditanya</b><div class="eq">a = ?</div></div>
+        <div class="formula"><b>4. Tentukan resultan gaya</b><div class="eq">ΣF = 20 − 4 = 16 N</div></div>
+        <div class="formula"><b>5. Pilih hukum</b><div class="eq">ΣF = ma</div><p>Hukum II Newton menghubungkan resultan gaya dan percepatan.</p></div>
+        <div class="formula"><b>6. Hitung</b><div class="eq">a = ΣF/m = 16/4 = 4 m/s²</div></div>
+        <div class="formula"><b>7. Evaluasi</b><p>Percepatan searah gaya resultan, yaitu 4 m/s² ke arah tarikan.</p></div>
+      </div>
+    </div>
+    <div class="sectionhead"><h2>Template bedah soal mandiri</h2></div>
+    <div class="panel">
+      <label for="phenomenon"><b>1. Fenomena</b></label><textarea class="field" id="phenomenon" rows="2" placeholder="Apa yang terjadi secara fisika?"></textarea>
+      <label for="known" style="display:block;margin-top:10px"><b>2. Diketahui + satuan</b></label><textarea class="field" id="known" rows="2" placeholder="m = ... kg; v₀ = ... m/s"></textarea>
+      <label for="asked" style="display:block;margin-top:10px"><b>3. Ditanya</b></label><input class="field" id="asked" placeholder="Besaran yang dicari">
+      <label for="concept" style="display:block;margin-top:10px"><b>4. Konsep / hukum</b></label><input class="field" id="concept" placeholder="Misalnya Hukum II Newton">
+      <label for="calculation" style="display:block;margin-top:10px"><b>5. Hubungan dan langkah hitung</b></label><textarea class="field" id="calculation" rows="3" placeholder="Tuliskan rumus, substitusi, dan hasil"></textarea>
+      <label for="evaluation" style="display:block;margin-top:10px"><b>6. Evaluasi</b></label><textarea class="field" id="evaluation" rows="2" placeholder="Satuan, arah, tanda, dan kewajaran hasil"></textarea>
+      <div class="row" style="margin-top:12px"><button class="btn primary" id="copyNotes">Salin catatan</button><button class="btn" id="clearNotes">Kosongkan</button></div><div id="noteStatus" class="small muted" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-latihan">
+    <div class="sectionhead"><div><h2>Latihan interaktif</h2><div class="muted">Pilih tingkat. Jawaban dan pembahasan muncul setelah kamu memilih opsi.</div></div></div>
+    <div class="callout"><b>Naik level secara bertahap:</b> Level 1 menguji konsep dan hubungan langsung; Level 2 meminta penerapan beberapa langkah; Level 3 menuntut analisis kondisi, grafik, atau konsekuensi fisika. Disarankan mulai dari Level 1, tetapi kamu bebas memilih level.</div>
+    <div class="nav" id="levels"><button class="btn primary" data-level="1">Level 1 · Paham</button><button class="btn" data-level="2">Level 2 · Terapkan</button><button class="btn" data-level="3">Level 3 · Analisis / HOTS</button></div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><span class="tag" id="qLevel">Level 1</span><span class="muted small" id="qCount">Soal 1</span></div>
+      <div class="question" id="questionText"></div><div id="answerOptions"></div>
+      <div class="feedback hide" id="feedback" aria-live="polite"></div>
+      <div class="row" style="margin-top:14px"><button class="btn primary" id="nextQuestion">Soal berikutnya →</button><button class="btn" id="resetLevel">Ulangi level</button></div>
+    </div>
+    <div class="panel"><b>Catatan latihan</b><p class="small muted">Semua soal di sini adalah latihan tambahan yang disusun untuk pembelajaran. Bukan soal resmi TKA.</p><div id="quizSummary"></div></div>
+  </section>
+
+  <section class="page" id="page-game">
+    <div class="sectionhead"><div><h2>Game pengasah logika fisika</h2><div class="muted">Tantangan singkat: prediksi dulu, baru lihat penjelasan. Tidak perlu kalkulator untuk sebagian besar ronde.</div></div></div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><span class="tag" id="gameRound">Ronde 1</span><span class="muted small" id="gameScore">Skor: 0</span></div>
+      <h3 id="gameTitle">Prediksi fisika</h3>
+      <div class="game-visual" id="gameVisual">🚲 →</div>
+      <p class="question" id="gameQuestion"></p>
+      <div id="gameChoices"></div>
+      <div class="game-status hide" id="gameFeedback" aria-live="polite"></div>
+      <div class="row" style="margin-top:14px"><button class="btn primary" id="gameNext">Ronde berikutnya →</button><button class="btn" id="gameReset">Mulai ulang game</button></div>
+    </div>
+    <div class="sectionhead"><h2>Skill yang dilatih</h2></div>
+    <div class="grid">
+      <div class="card"><h3>Prediksi sebelum hitung</h3><p class="small muted">Bangun intuisi arah perubahan sebelum memakai rumus.</p></div>
+      <div class="card"><h3>Deteksi asumsi</h3><p class="small muted">Perhatikan apa yang tetap, apa yang berubah, dan apakah model ideal berlaku.</p></div>
+      <div class="card"><h3>Evaluasi jawaban</h3><p class="small muted">Cari jawaban yang melanggar satuan, kekekalan, atau hubungan proporsional.</p></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-kamus">
+    <div class="sectionhead"><div><h2>Kamus simbol</h2><div class="muted">Simbol dapat memiliki arti berbeda sesuai konteks.</div></div></div>
+    <input class="field" id="symbolSearch" placeholder="Cari simbol atau satuan…" aria-label="Cari simbol">
+    <div class="panel tablewrap" style="margin-top:14px"><table><thead><tr><th>Simbol</th><th>Arti</th><th>Satuan SI</th></tr></thead><tbody id="symbolRows"></tbody></table></div>
+  </section>
+
+  <section class="page" id="page-rencana">
+    <div class="sectionhead"><div><h2>Checklist belajar</h2><div class="muted">Tandai hal yang sudah bisa kamu lakukan, bukan sekadar sudah dibaca.</div></div></div>
+    <div class="panel">
+      <div class="progress"><div id="checkProgress"></div></div><p class="small muted" id="checkCount">0 dari 15 selesai</p>
+      <div class="checklist" id="checklist"></div>
+      <div class="row" style="margin-top:12px"><button class="btn" id="resetChecklist">Reset checklist</button></div>
+    </div>
+    <div class="callout">Strategi: untuk setiap bab, pastikan kamu bisa menjelaskan konsep dengan kata-katamu sendiri, memilih rumus berdasarkan kondisi, dan memeriksa jawaban dengan satuan.</div>
+  </section>
+  <footer class="footer">Physics Learning Lab · TKA Fisika SMA 2026 · Panduan belajar mandiri. Verifikasi cakupan melalui sumber resmi.</footer>
+</main>
+</div>
+<script>
+const topics=[
+{id:"kin",name:"1. Kinematika",short:"Kinematika",official:"Pengukuran, gerak lurus, gerak parabola, dan gerak melingkar beraturan.",desc:"Kinematika mendeskripsikan gerak tanpa membahas penyebabnya. Bedakan jarak dengan perpindahan, serta kelajuan dengan kecepatan.",formulas:[
+["Kecepatan rata-rata","v̄ = Δx/Δt","Perpindahan dibagi selang waktu; kecepatan memiliki arah."],
+["GLB","x = x₀ + vt","Kecepatan konstan; percepatan nol."],
+["GLBB: kecepatan","v = v₀ + at","Percepatan konstan."],
+["GLBB: perpindahan","Δx = v₀t + ½at²","Percepatan konstan."],
+["GLBB tanpa waktu","v² = v₀² + 2aΔx","Gunakan jika waktu tidak diketahui."],
+["Kecepatan rata-rata GLBB","Δx = ½(v₀ + v)t","Percepatan konstan."],
+["Gerak parabola","v₀x = v₀ cos θ; v₀y = v₀ sin θ","Uraikan kecepatan awal pada sumbu horizontal dan vertikal."],
+["Parabola: vertikal","y = v₀ sin θ·t − ½gt²","Sumbu vertikal positif ke atas; abaikan hambatan udara."],
+["Melingkar","ω = 2π/T = 2πf; v = ωr","Gerak melingkar beraturan."],
+["Sentripetal","aₛ = v²/r = ω²r","Arah percepatan menuju pusat lintasan."]
+],example:"Mobil bergerak dari diam dengan percepatan tetap 2 m/s² selama 5 s. Kecepatan akhirnya v = v₀ + at = 0 + 2(5) = 10 m/s.",symbols:"v: kecepatan; v₀: kecepatan awal; x: posisi; Δx: perpindahan; t: waktu; a: percepatan; g: percepatan gravitasi; θ: sudut; r: jari-jari; ω: kecepatan sudut; f: frekuensi; T: periode."},
+{id:"din",name:"2. Dinamika",short:"Dinamika",official:"Hukum Newton, gaya, momentum-impuls, dan dinamika rotasi.",desc:"Dinamika menjelaskan penyebab perubahan gerak. Mulai dari diagram gaya, lalu gunakan resultan gaya atau resultan momen gaya.",formulas:[
+["Hukum I Newton","ΣF = 0 → a = 0","Benda diam atau bergerak dengan kecepatan konstan."],
+["Hukum II Newton","ΣF = ma","ΣF adalah resultan semua gaya pada satu benda."],
+["Berat","w = mg","Gaya gravitasi dekat permukaan Bumi."],
+["Gesekan kinetis","fₖ = μₖN","Model gesekan kering; N adalah gaya normal."],
+["Momentum","p = mv","Momentum merupakan besaran vektor."],
+["Impuls","J = F̄Δt = Δp","F̄ gaya rata-rata; impuls sama dengan perubahan momentum."],
+["Kekekalan momentum","Σp_awal = Σp_akhir","Resultan impuls eksternal sistem dapat diabaikan."],
+["Momen gaya","τ = rF sin θ","θ adalah sudut antara lengan posisi dan gaya."],
+["Rotasi","Στ = Iα","Untuk rotasi terhadap sumbu tetap."],
+["Energi kinetik rotasi","Eᵣ = ½Iω²","Benda tegar berotasi terhadap sumbu."]
+],example:"Balok 4 kg ditarik 20 N dan mengalami gesekan 4 N. Resultan gaya = 20 − 4 = 16 N. Maka a = ΣF/m = 16/4 = 4 m/s².",symbols:"F: gaya; m: massa; a: percepatan; μ: koefisien gesek; N: gaya normal; p: momentum; J: impuls; τ: momen gaya; I: momen inersia; α: percepatan sudut."},
+{id:"flu",name:"3. Fluida",short:"Fluida",official:"Tekanan, Hukum Pascal, Hukum Archimedes, kontinuitas, dan Bernoulli.",desc:"Periksa apakah fluida diam atau mengalir, kedalaman, luas penampang, dan asumsi aliran ideal.",formulas:[
+["Tekanan","P = F/A","Gaya tegak lurus dibagi luas."],
+["Hidrostatis","P = P₀ + ρgh","Tekanan total pada kedalaman h; P₀ tekanan permukaan."],
+["Hukum Pascal","F₁/A₁ = F₂/A₂","Sistem hidraulik ideal."],
+["Archimedes","F_A = ρ_f g V_tercelup","ρ_f massa jenis fluida."],
+["Kontinuitas","A₁v₁ = A₂v₂","Aliran tunak fluida tak termampatkan."],
+["Bernoulli","P + ½ρv² + ρgh = konstan","Aliran ideal sepanjang garis arus, tanpa rugi energi."]
+],example:"Luas pipa mengecil menjadi setengah. Dari A₁v₁ = A₂v₂, kecepatan aliran menjadi dua kali lipat jika aliran tunak dan fluida tak termampatkan.",symbols:"P: tekanan; F: gaya; A: luas; ρ: massa jenis; h: kedalaman/ketinggian; F_A: gaya apung; V: volume tercelup; v: laju aliran."},
+{id:"gel",name:"4. Gelombang, bunyi & optik",short:"Gelombang & optik",official:"Gelombang, bunyi, cahaya, pembiasan, cermin, lensa, dan alat optik sesuai matriks asesmen.",desc:"Bunyi adalah gelombang mekanik; cahaya adalah gelombang elektromagnetik. Pada soal optik, ukur sudut dari garis normal dan gunakan konvensi tanda secara konsisten.",formulas:[
+["Gelombang","v = fλ","Cepat rambat = frekuensi × panjang gelombang."],
+["Periode","T = 1/f","Hubungan periode dan frekuensi."],
+["Intensitas","I = P/A","Daya per satuan luas."],
+["Sumber titik","I = P/(4πr²)","Sumber memancar merata ke segala arah."],
+["Taraf intensitas","β = 10 log₁₀(I/I₀)","I₀ adalah intensitas acuan."],
+["Indeks bias","n = c/v","c adalah laju cahaya di vakum."],
+["Hukum Snell","n₁ sin θ₁ = n₂ sin θ₂","Sudut diukur dari garis normal."],
+["Cermin/lensa tipis","1/f = 1/s + 1/s′","Terapkan konvensi tanda yang digunakan soal."],
+["Perbesaran","m = h′/h","Pada konvensi umum lensa tipis, m = −s′/s."]
+],example:"Jarak dari sumber titik menjadi 2 kali lipat. Karena I berbanding terbalik dengan r², intensitas menjadi 1/4 nilai awal jika daya dan kondisi sumber tetap.",symbols:"v: cepat rambat; f: frekuensi; λ: panjang gelombang; I: intensitas; P: daya; r: jarak; β: taraf bunyi; n: indeks bias; s: jarak benda; s′: jarak bayangan; f: fokus pada konteks optik."},
+{id:"kal",name:"5. Kalor & termodinamika",short:"Kalor & termodinamika",official:"Kalor, pemuaian, perpindahan kalor, pemanasan global, gas ideal, dan termodinamika.",desc:"Bedakan suhu dengan kalor. Untuk gas ideal gunakan suhu mutlak kelvin. Pada Hukum I, periksa konvensi tanda usaha.",formulas:[
+["Kalor perubahan suhu","Q = mcΔT","Tidak ada perubahan wujud."],
+["Kalor laten","Q = mL","Perubahan wujud pada kondisi yang sesuai."],
+["Pemuaian panjang","ΔL = αL₀ΔT","Model pemuaian untuk rentang suhu yang sesuai."],
+["Konduksi tunak","Q/t = kAΔT/L","Konduksi satu dimensi pada keadaan tunak."],
+["Gas ideal","PV = nRT","T dalam kelvin; R konstanta gas."],
+["Gas jumlah tetap","P₁V₁/T₁ = P₂V₂/T₂","T dalam kelvin."],
+["Hukum I termodinamika","ΔU = Q − W","W positif jika usaha dilakukan oleh gas."],
+["Usaha isobarik","W = PΔV","Tekanan tetap."],
+["Efisiensi mesin kalor","η = W_out/Q_in = 1 − Q_out/Q_in","Mesin siklik; Q_in kalor masuk dan Q_out kalor keluar."]
+],example:"Air 0,5 kg dengan c = 4.200 J/(kg·°C) naik suhu 2°C. Q = mcΔT = 0,5 × 4.200 × 2 = 4.200 J.",symbols:"Q: kalor; m: massa; c: kalor jenis; L: kalor laten; α: koefisien muai; k: konduktivitas termal; P: tekanan; V: volume; n: jumlah mol; R: konstanta gas; T: suhu mutlak; U: energi dalam; W: usaha; η: efisiensi."},
+{id:"lis",name:"6. Kelistrikan",short:"Kelistrikan",official:"Listrik statis, gaya Coulomb, medan dan potensial listrik, rangkaian DC, Hukum Kirchhoff, dan daya.",desc:"Pada rangkaian, identifikasi simpul dan cabang. Resistor seri memiliki arus sama; resistor paralel memiliki tegangan sama.",formulas:[
+["Hukum Coulomb","F = k|q₁q₂|/r²","Besar gaya antara dua muatan titik."],
+["Medan listrik","E = F/q; E = k|Q|/r²","Perhatikan arah medan dan tanda muatan."],
+["Potensial muatan titik","V = kQ/r","Potensial bertanda mengikuti muatan Q."],
+["Arus","I = ΔQ/Δt","Laju aliran muatan."],
+["Hukum Ohm","V = IR","Untuk elemen ohmik dalam kondisi sesuai."],
+["Hambatan seri","R_eq = R₁ + R₂ + …","Arus sama pada setiap resistor seri."],
+["Hambatan paralel","1/R_eq = Σ(1/Rᵢ)","Tegangan sama pada setiap cabang paralel."],
+["Daya listrik","P = VI = I²R = V²/R","Pilih bentuk sesuai besaran yang diketahui tetap."],
+["Kirchhoff arus","ΣI_masuk = ΣI_keluar","Kekekalan muatan pada simpul."],
+["Kirchhoff tegangan","ΣΔV = 0","Jumlah perubahan potensial pada lintasan tertutup."]
+],example:"Resistor 6 Ω dipasang pada tegangan 12 V. Dari I = V/R = 12/6, arusnya 2 A.",symbols:"q, Q: muatan; r: jarak; k: konstanta Coulomb; E: medan listrik; V: potensial/tegangan; I: arus; R: hambatan; P: daya."}
+];
+const extras=[
+["Pengukuran & angka penting","Pembacaan jangka sorong/mikrometer: skala utama + skala tambahan sesuai skala alat. Perkalian/pembagian mengikuti jumlah angka penting paling sedikit; penjumlahan/pengurangan mengikuti tempat desimal paling sedikit."],
+["Pemanasan global","Efek rumah kaca alami menjaga Bumi tetap hangat. Peningkatan gas rumah kaca memperkuat penahanan radiasi inframerah dan menaikkan suhu rata-rata. Bedakan efek rumah kaca dengan penipisan ozon."],
+["Alat optik","Pelajari pembentukan bayangan pada mata, lup, mikroskop, dan teropong sesuai model yang digunakan dalam soal. Perhatikan titik dekat, titik jauh, akomodasi, dan konvensi tanda."],
+["Mesin kalor","Efisiensi η = W_out/Q_in. Untuk mesin siklik, W_out = Q_in − Q_out. Mesin nyata tidak mencapai efisiensi 100% karena ada batasan dan rugi energi."]
+];
+const steps=[
+["Fenomena","Ubah cerita menjadi model: gerak, gaya, tumbukan, aliran, kalor, gelombang, atau rangkaian."],
+["Ditanya","Cari besaran target dan satuannya. Soal perbandingan bisa diselesaikan tanpa menghitung angka mutlak."],
+["Diketahui","Catat angka, satuan, arah, kondisi awal, serta kata kunci: licin, diam, konstan, terisolasi, dan sebagainya."],
+["Gambar model","Buat diagram gaya, sumbu gerak, sketsa aliran, lintasan cahaya, atau rangkaian."],
+["Pilih hukum","Tentukan hubungan fisika berdasarkan kondisi. Jangan memilih rumus hanya karena ada angka yang cocok."],
+["Selesaikan","Ubah satuan, susun persamaan, substitusi angka, lalu hitung dengan teliti."],
+["Evaluasi","Periksa satuan, tanda, arah, orde besaran, dan apakah hasil sesuai prinsip fisika."]
+];
+const questions=[
+{l:1,t:"kin",q:"Benda bergerak dengan kecepatan tetap 5 m/s selama 4 s. Berapa jarak tempuhnya?",a:["1,25 m","9 m","20 m","25 m"],c:2,e:"GLB: s = vt = 5 × 4 = 20 m."},
+{l:1,t:"din",q:"Resultan gaya pada benda bermassa 2 kg adalah 10 N. Percepatannya …",a:["0,2 m/s²","5 m/s²","10 m/s²","20 m/s²"],c:1,e:"Hukum II Newton: a = ΣF/m = 10/2 = 5 m/s²."},
+{l:1,t:"kal",q:"Air bermassa 0,5 kg dipanaskan dengan c = 4.200 J/(kg·°C) dan naik 2°C. Kalor yang diserap?",a:["420 J","2.100 J","4.200 J","8.400 J"],c:2,e:"Q = mcΔT = 0,5 × 4.200 × 2 = 4.200 J."},
+{l:2,t:"kin",q:"Benda mulai dari diam, dipercepat 3 m/s² selama 4 s. Kecepatan akhirnya?",a:["7 m/s","12 m/s","16 m/s","24 m/s"],c:1,e:"v = v₀ + at = 0 + 3 × 4 = 12 m/s."},
+{l:2,t:"lis",q:"Resistor 6 Ω dihubungkan ke sumber 12 V. Arus pada resistor adalah …",a:["0,5 A","2 A","6 A","72 A"],c:1,e:"Hukum Ohm: I = V/R = 12/6 = 2 A."},
+{l:2,t:"flu",q:"Luas penampang pipa menjadi setengah. Untuk aliran tunak fluida tak termampatkan, laju alir menjadi …",a:["Setengah","Tetap","Dua kali lipat","Empat kali lipat"],c:2,e:"Kontinuitas A₁v₁ = A₂v₂. Jika luas setengah, kecepatan menjadi dua kali lipat."},
+{l:3,t:"din",q:"Penjaga gawang menarik tangan ke belakang saat menangkap bola. Untuk perubahan momentum yang sama, apa yang benar?",a:["Impuls pasti berkurang","Waktu kontak bertambah dan gaya rata-rata berkurang","Momentum awal menjadi nol","Kecepatan awal berubah sebelum ditangkap"],c:1,e:"Untuk perubahan momentum yang sama, waktu kontak lebih lama berarti gaya rata-rata lebih kecil, karena J = F̄Δt."},
+{l:3,t:"gel",q:"Sumber bunyi titik memancarkan merata. Jika jarak pendengar menjadi dua kali lipat, intensitas menjadi …",a:["2 kali","1/2 kali","1/4 kali","4 kali"],c:2,e:"I berbanding terbalik dengan r². Jarak dua kali lipat membuat intensitas menjadi 1/4."},
+{l:3,t:"lis",q:"Tegangan sumber ideal tetap. Resistor tambahan diseri dengan resistor yang sudah ada. Apa yang terjadi pada arus total dan daya total?",a:["Keduanya naik","Arus naik, daya turun","Arus turun, daya total turun","Keduanya tetap"],c:2,e:"R_total naik sehingga I = V/R turun. Daya total P = V²/R_total juga turun."},
+{l:1,t:"gel",q:"Gelombang memiliki frekuensi 4 Hz dan panjang gelombang 3 m. Cepat rambatnya adalah …",a:["0,75 m/s","7 m/s","12 m/s","24 m/s"],c:2,e:"Gunakan v = fλ = 4 × 3 = 12 m/s."},
+{l:1,t:"flu",q:"Tekanan pada kedalaman yang sama dalam fluida diam yang sama adalah …",a:["Selalu lebih besar di wadah yang lebar","Sama, jika kedalaman dan fluida sama","Bergantung pada bentuk wadah saja","Nol jika wadah terbuka"],c:1,e:"Tekanan hidrostatis bergantung pada massa jenis, gravitasi, dan kedalaman, bukan bentuk wadah."},
+{l:1,t:"lis",q:"Dua resistor identik dipasang seri. Dibandingkan satu resistor saja pada sumber tegangan ideal yang sama, hambatan total menjadi …",a:["Setengah","Sama","Dua kali","Empat kali"],c:2,e:"Hambatan seri dijumlahkan: R_total = R + R = 2R."},
+{l:2,t:"kin",q:"Mobil melaju 20 m/s lalu direm dengan perlambatan tetap 4 m/s² hingga berhenti. Jarak pengeremannya …",a:["5 m","20 m","50 m","100 m"],c:2,e:"v² = v₀² + 2aΔx. 0 = 400 − 8Δx, jadi Δx = 50 m."},
+{l:2,t:"din",q:"Benda 3 kg ditarik 15 N di permukaan tanpa gesekan. Jika gaya menjadi dua kali lipat dan massanya tetap, percepatan menjadi …",a:["Setengah","Tetap","Dua kali","Empat kali"],c:2,e:"a = F/m. Dengan massa tetap, menggandakan gaya menggandakan percepatan."},
+{l:2,t:"kal",q:"Gas ideal dalam wadah kaku dipanaskan. Jika jumlah gas tetap, besaran yang pasti meningkat adalah …",a:["Volume","Suhu mutlak dan tekanan","Massa gas","Jumlah mol"],c:1,e:"Pada volume dan jumlah mol tetap, PV = nRT memberi P berbanding lurus dengan T dalam kelvin."},
+{l:2,t:"gel",q:"Sebuah lensa memiliki fokus 10 cm. Benda diletakkan 30 cm di depan lensa cembung tipis. Jarak bayangan menurut 1/f = 1/s + 1/s′ adalah …",a:["7,5 cm","10 cm","15 cm","30 cm"],c:2,e:"1/s′ = 1/10 − 1/30 = 2/30 = 1/15, sehingga s′ = 15 cm."},
+{l:3,t:"flu",q:"Air mengalir tunak dalam pipa horizontal ideal. Pada bagian yang lebih sempit, laju aliran meningkat. Menurut Bernoulli, tekanan statis di bagian sempit cenderung …",a:["Meningkat","Menurun","Selalu nol","Tidak bisa dibandingkan karena ketinggian berubah"],c:1,e:"Pada ketinggian sama, laju lebih besar berarti suku ½ρv² lebih besar, sehingga tekanan statis lebih kecil."},
+{l:3,t:"kal",q:"Dua benda identik bersuhu berbeda disentuhkan dalam sistem terisolasi. Setelah cukup lama, pernyataan yang paling tepat adalah …",a:["Suhu akhir pasti sama dengan suhu awal benda panas","Kalor terus mengalir setelah suhu sama","Keduanya mencapai suhu sama; energi total tetap","Benda dingin menghasilkan energi baru"],c:2,e:"Dalam kesetimbangan termal suhu sama. Untuk sistem terisolasi, energi total kekal; kalor berpindah dari suhu lebih tinggi ke lebih rendah."},
+{l:3,t:"lis",q:"Dua lampu identik dirangkai paralel pada baterai ideal. Satu lampu dilepas dari rangkaian. Tegangan pada lampu yang tersisa …",a:["Menjadi nol","Menjadi setengah","Tetap sama","Menjadi dua kali"],c:2,e:"Pada sumber ideal, cabang paralel menerima tegangan sumber yang sama. Melepas cabang lain tidak mengubah tegangan lampu tersisa."},
+{l:3,t:"din",q:"Dua troli bertumbukan dan bergerak bersama setelah tumbukan. Jika gaya luar total dapat diabaikan selama tumbukan, besaran yang pasti kekal adalah …",a:["Energi kinetik total","Momentum total","Kecepatan tiap troli","Energi kinetik masing-masing troli"],c:1,e:"Pada tumbukan tidak lenting sama sekali, momentum total kekal jika impuls gaya luar dapat diabaikan, tetapi energi kinetik tidak harus kekal."}
+];
+const symbols=[
+["v","Kecepatan atau cepat rambat","m/s"],["v₀","Kecepatan awal","m/s"],["a","Percepatan","m/s²"],["x, Δx","Posisi dan perpindahan","m"],["t","Waktu","s"],["g","Percepatan gravitasi","m/s²"],["m","Massa","kg"],["F, ΣF","Gaya dan resultan gaya","N"],["N","Gaya normal (konteks dinamika)","N"],["p","Momentum","kg·m/s"],["J","Impuls","N·s"],["τ","Momen gaya","N·m"],["I","Momen inersia atau arus listrik sesuai konteks","kg·m² atau A"],["ρ","Massa jenis","kg/m³"],["P","Tekanan atau daya listrik sesuai konteks","Pa atau W"],["Q","Kalor atau muatan listrik sesuai konteks","J atau C"],["c","Kalor jenis atau laju cahaya sesuai konteks","J/(kg·K) atau m/s"],["f","Frekuensi; atau fokus lensa/cermin sesuai konteks","Hz atau m"],["T","Periode atau suhu mutlak sesuai konteks","s atau K"],["λ","Panjang gelombang","m"],["ω","Kecepatan sudut","rad/s"],["V","Tegangan atau potensial listrik","V"],["R","Hambatan listrik","Ω"],["E","Energi atau medan listrik sesuai konteks","J atau N/C"],["α","Percepatan sudut atau koefisien muai sesuai konteks","rad/s² atau K⁻¹"],["η","Efisiensi","tanpa satuan"],["ρ_f","Massa jenis fluida","kg/m³"],["μ","Koefisien gesek","tanpa satuan"]
+];
+const checklistItems=["Aku bisa membedakan jarak, perpindahan, kelajuan, dan kecepatan.","Aku bisa memilih rumus GLB atau GLBB dari informasi soal.","Aku bisa membaca grafik posisi–waktu dan kecepatan–waktu.","Aku bisa menggambar diagram gaya dan menerapkan Hukum Newton.","Aku memahami impuls, momentum, dan kekekalan momentum.","Aku bisa menghitung momen gaya pada benda tegar.","Aku bisa menjelaskan tekanan hidrostatis dan gaya apung.","Aku bisa memakai kontinuitas dan Bernoulli sesuai kondisi.","Aku memahami frekuensi, periode, dan panjang gelombang.","Aku bisa menggunakan persamaan cermin/lensa dengan konvensi tanda.","Aku bisa menghitung kalor dan perubahan wujud bertahap.","Aku bisa memakai gas ideal dengan suhu kelvin.","Aku memahami daya, arus, dan hambatan seri-paralel.","Aku bisa memakai Hukum Kirchhoff pada rangkaian.","Aku bisa membaca tabel/grafik eksperimen dan mengevaluasi kesimpulan."];
+const $=id=>document.getElementById(id);
+let currentPage="home",currentTopic="kin",level=1,indices={1:0,2:0,3:0},storedAnswers={},checks={};
+try{storedAnswers=JSON.parse(localStorage.getItem("pll_answers")||"{}");checks=JSON.parse(localStorage.getItem("pll_checks")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("pll_answers",JSON.stringify(storedAnswers));localStorage.setItem("pll_checks",JSON.stringify(checks))}catch(e){}}
+function go(page){currentPage=page;document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("sidebar").classList.remove("open");window.scrollTo({top:0,behavior:"smooth"});if(page==="materi")renderTopic();if(page==="latihan")renderQuestion()}
+document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+$("menuBtn").onclick=()=>$("sidebar").classList.toggle("open");$("printBtn").onclick=()=>window.print();$("startBtn").onclick=()=>go("materi");$("toQuiz").onclick=()=>go("latihan");
+function renderCards(){$("topicCards").innerHTML=topics.map(t=>`<article class="card topiccard" tabindex="0" role="button" data-topic="${t.id}"><div class="topicnum">${t.name.split(".")[0].padStart(2,"0")} / LEARN</div><h3>${t.name.replace(/^\d+\.\s*/,"")}</h3><p class="muted small">${t.desc}</p><span class="link">Buka bab →</span></article>`).join("");$("topicCards").querySelectorAll("[data-topic]").forEach(b=>{b.onclick=()=>{currentTopic=b.dataset.topic;go("materi")};b.onkeydown=e=>{if(e.key==="Enter")b.click()}})}
+function renderTabs(){$("topicTabs").innerHTML=topics.map(t=>`<button class="btn ${t.id===currentTopic?"primary":""}" data-topic="${t.id}">${t.short}</button>`).join("");$("topicTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{currentTopic=b.dataset.topic;renderTabs();renderTopic()})}
+function renderTopic(){renderTabs();let t=topics.find(x=>x.id===currentTopic),q=($("formulaSearch").value||"").toLowerCase();let fs=t.formulas.filter(f=>f.join(" ").toLowerCase().includes(q)||t.name.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q));let extraHTML=extras.map(e=>`<div class="formula"><h4>${e[0]}</h4><p class="small">${e[1]}</p></div>`).join("");$("topicDetail").innerHTML=`<div class="panel"><span class="tag">Cakupan acuan resmi</span><h2>${t.name}</h2><p><b>Materi:</b> ${t.official}</p><p class="muted">${t.desc}</p><div class="callout"><b>Pola pikir:</b> cari fenomena, kondisi yang berlaku, besaran yang diketahui, dan besaran yang ditanya sebelum memilih rumus.</div></div><div class="sectionhead"><h2>Rumus dasar</h2><span class="muted small">${fs.length} rumus cocok</span></div><div class="grid">${fs.map(f=>`<div class="card"><h3 style="margin-top:0">${f[0]}</h3><div class="eq">${f[1]}</div><p class="muted small">${f[2]}</p></div>`).join("")||"<p>Tidak ada rumus yang cocok dengan pencarian.</p>"}</div><div class="sectionhead"><h2>Contoh penerapan</h2></div><div class="panel">${t.example}</div><div class="sectionhead"><h2>Arti simbol</h2></div><div class="panel">${t.symbols}</div>${currentTopic==="kin"?`<div class="sectionhead"><h2>Tambahan: pengukuran & angka penting</h2></div>${extraHTML}`:currentTopic==="kal"?`<div class="sectionhead"><h2>Tambahan konsep terkait</h2></div>${extras.slice(1,2).concat(extras.slice(3)).map(e=>`<div class="formula"><h4>${e[0]}</h4><p class="small">${e[1]}</p></div>`).join("")}`:currentTopic==="gel"?`<div class="sectionhead"><h2>Tambahan alat optik</h2></div>${extras[2][1]}`:""}<div class="row" style="margin-top:18px"><button class="btn primary" id="topicQuiz">Latihan interaktif →</button><button class="btn" id="topicBedah">Ke bedah soal</button></div>`;$("topicQuiz").onclick=()=>go("latihan");$("topicBedah").onclick=()=>go("bedah")}
+$("formulaSearch").addEventListener("input",renderTopic);
+function renderSteps(){$("stepsList").innerHTML=steps.map((s,i)=>`<div class="step"><div class="stepno">${i+1}</div><div><b>${s[0]}</b><div class="muted small">${s[1]}</div></div></div>`).join("")}
+$("showExample").onclick=()=>{let s=$("exampleSolution");s.classList.toggle("hide");$("showExample").textContent=s.classList.contains("hide")?"Tampilkan pembahasan":"Sembunyikan pembahasan"};
+$("copyNotes").onclick=async()=>{let text=["FENOMENA: "+$("phenomenon").value,"DIKETAHUI: "+$("known").value,"DITANYA: "+$("asked").value,"KONSEP: "+$("concept").value,"LANGKAH HITUNG: "+$("calculation").value,"EVALUASI: "+$("evaluation").value].join("\n");try{await navigator.clipboard.writeText(text);$("noteStatus").textContent="Catatan berhasil disalin."}catch(e){let w=window.open("","_blank","width=600,height=500");if(w){w.document.write("<pre style='white-space:pre-wrap;font:16px sans-serif'>"+text.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</pre>");$("noteStatus").textContent="Catatan dibuka di jendela baru; salin secara manual."}else{$("noteStatus").textContent="Salin teks dari kolom-kolom di atas secara manual."}}};
+$("clearNotes").onclick=()=>{["phenomenon","known","asked","concept","calculation","evaluation"].forEach(id=>$(id).value="");$("noteStatus").textContent="Catatan dikosongkan."};
+$("levels").querySelectorAll("button").forEach(b=>b.onclick=()=>{level=+b.dataset.level;renderLevels();renderQuestion()});
+function renderLevels(){$("levels").querySelectorAll("button").forEach(b=>{b.classList.toggle("primary",+b.dataset.level===level)})}
+function qsForLevel(){return questions.filter(q=>q.l===level)}
+function qkey(l,i){return l+"-"+i}
+function renderQuestion(){let qs=qsForLevel();if(indices[level]>=qs.length)indices[level]=0;let i=indices[level],q=qs[i],key=qkey(level,i),chosen=storedAnswers[key];$("qLevel").textContent=["","Level 1 · Paham","Level 2 · Terapkan","Level 3 · Analisis"][level];$("qCount").textContent=`Soal ${i+1} dari ${qs.length}`;$("questionText").textContent=q.q;$("answerOptions").innerHTML=q.a.map((a,j)=>`<button class="answer" data-answer="${j}" ${chosen!==undefined?"disabled":""}>${String.fromCharCode(65+j)}. ${a}</button>`).join("");$("feedback").classList.toggle("hide",chosen===undefined);if(chosen!==undefined){$("feedback").innerHTML=`<b>${chosen===q.c?"Benar!":"Belum tepat."}</b> ${q.e}`;mark(q,chosen)}else $("feedback").textContent="";$("answerOptions").querySelectorAll("button").forEach(b=>b.onclick=()=>{if(storedAnswers[key]!==undefined)return;storedAnswers[key]=+b.dataset.answer;save();renderQuestion();updateStats()});$("quizSummary").innerHTML=`<div class="statgrid"><div class="stat"><span class="small muted">Dijawab</span><strong>${Object.keys(storedAnswers).length}</strong></div><div class="stat"><span class="small muted">Benar</span><strong>${Object.entries(storedAnswers).filter(([k,v])=>{let [l,i]=k.split("-").map(Number);return questions.filter(q=>q.l===l)[i]?.c===v}).length}</strong></div><div class="stat"><span class="small muted">Total soal</span><strong>${questions.length}</strong></div></div>`;updateStats()}
+function mark(q,chosen){$("answerOptions").querySelectorAll("button").forEach((b,i)=>{if(i===q.c)b.classList.add("correct");if(i===chosen&&i!==q.c)b.classList.add("wrong")})}
+$("nextQuestion").onclick=()=>{indices[level]=(indices[level]+1)%qsForLevel().length;renderQuestion()};$("resetLevel").onclick=()=>{qsForLevel().forEach((q,i)=>delete storedAnswers[qkey(level,i)]);indices[level]=0;save();renderQuestion();updateStats()};
+function updateStats(){let vals=Object.entries(storedAnswers),right=vals.filter(([k,v])=>{let [l,i]=k.split("-").map(Number);return questions.filter(q=>q.l===l)[i]?.c===v}).length;$("statAnswered").textContent=vals.length;$("statCorrect").textContent=right;$("statAccuracy").textContent=vals.length?Math.round(right/vals.length*100)+"%":"—";$("progressBar").style.width=(vals.length?right/vals.length*100:0)+"%"}
+function renderSymbols(){let q=($("symbolSearch").value||"").toLowerCase();$("symbolRows").innerHTML=symbols.filter(s=>s.join(" ").toLowerCase().includes(q)).map(s=>`<tr><td class="symbol">${s[0]}</td><td>${s[1]}</td><td>${s[2]}</td></tr>`).join("")||"<tr><td colspan='3'>Simbol tidak ditemukan.</td></tr>"}
+$("symbolSearch").addEventListener("input",renderSymbols);
+function renderChecklist(){$("checklist").innerHTML=checklistItems.map((s,i)=>`<label><input type="checkbox" data-check="${i}" ${checks[i]?"checked":""}><span>${s}</span></label>`).join("");$("checklist").querySelectorAll("input").forEach(c=>c.onchange=()=>{checks[c.dataset.check]=c.checked;save();updateChecklist()});updateChecklist()}
+function updateChecklist(){let n=checklistItems.filter((_,i)=>checks[i]).length;$("checkCount").textContent=`${n} dari ${checklistItems.length} selesai`;$("checkProgress").style.width=n/checklistItems.length*100+"%"}
+$("resetChecklist").onclick=()=>{checks={};save();renderChecklist()};
+
+// Video/resource flow and readiness checklist
+document.querySelectorAll("[data-open-topic]").forEach(b=>b.onclick=()=>{currentTopic=b.dataset.openTopic;go("materi")});
+document.querySelectorAll("[data-preflight]").forEach(c=>c.onchange=()=>{let n=[...document.querySelectorAll("[data-preflight]")].filter(x=>x.checked).length;$("preflightStatus").textContent=`${n} dari 4 langkah persiapan ditandai. ${n===4?"Bagus—mulai dari Level 1 dan naikkan level setelah pembahasan dipahami.":"Lanjutkan persiapan sesuai kebutuhanmu."}`});
+$("preflightGo").onclick=()=>{level=1;indices[1]=0;renderLevels();go("latihan")};
+
+// Logic game: conceptual predictions and proportional reasoning
+const gameRounds=[
+{title:"Inersia",visual:"🛹  →",q:"Skateboard bergerak lurus dengan kecepatan tetap di permukaan ideal tanpa gaya resultan. Setelah didorong lalu tidak disentuh lagi, apa yang paling masuk akal?",a:["Langsung berhenti","Terus bergerak dengan kecepatan tetap","Makin cepat sendiri","Berbalik arah"],c:1,e:"Hukum I Newton: tanpa resultan gaya, kecepatan tidak berubah. Benda tidak membutuhkan gaya terus-menerus untuk mempertahankan geraknya."},
+{title:"Jatuh bebas",visual:"🍎 ↓   🪶 ↓",q:"Jika hambatan udara diabaikan, dua benda berbeda massa dijatuhkan dari ketinggian sama pada waktu yang sama. Mana yang tiba lebih dulu?",a:["Benda yang lebih berat","Benda yang lebih ringan","Bersamaan","Tergantung warna benda"],c:2,e:"Dalam model jatuh bebas ideal, percepatan keduanya sama, yaitu g. Hambatan udara dapat mengubah hasil di dunia nyata."},
+{title:"Pipa menyempit",visual:"💧 ━━━▶ ━▶",q:"Air mengalir tunak melalui pipa horizontal yang makin sempit. Apa yang terjadi pada laju air di bagian sempit?",a:["Menurun","Meningkat","Tetap selalu","Menjadi nol"],c:1,e:"Persamaan kontinuitas A₁v₁ = A₂v₂. Luas penampang yang lebih kecil menuntut laju lebih besar untuk debit yang sama."},
+{title:"Dua lampu",visual:"🔋 ─ 💡 ─ 💡",q:"Dua lampu identik diseri pada baterai ideal. Jika satu lampu dilepas sehingga rangkaian terbuka, apa yang terjadi?",a:["Lampu lain makin terang","Lampu lain tetap menyala","Arus berhenti, lampu lain padam","Tegangan baterai menjadi nol"],c:2,e:"Rangkaian seri harus membentuk lintasan tertutup. Ketika satu lampu dilepas, arus rangkaian berhenti."},
+{title:"Pengereman",visual:"🚗 💨 → 🛑",q:"Dua mobil punya kecepatan awal sama dan mengalami perlambatan konstan sama besar. Jika massa mobil B lebih besar, bagaimana jarak berhentinya menurut model ideal?",a:["B lebih jauh karena massanya","B lebih pendek","Sama, karena jarak ditentukan kecepatan awal dan perlambatan","Tidak dapat dibandingkan"],c:2,e:"v² = v₀² + 2aΔx. Untuk kecepatan awal dan perlambatan yang sama, jarak berhenti sama; massa tidak muncul dalam hubungan kinematika ini."},
+{title:"Kalor",visual:"☕ 🔥  →  🌡️",q:"Dua benda bersuhu berbeda diletakkan dalam sistem terisolasi dan saling bertukar kalor. Arah perpindahan kalor spontan adalah …",a:["Dingin ke panas","Panas ke dingin","Selalu dari benda yang lebih berat","Tidak ada arah tertentu"],c:1,e:"Kalor berpindah spontan dari suhu lebih tinggi ke suhu lebih rendah hingga tercapai kesetimbangan termal."},
+{title:"Gelombang",visual:"〰️ 〰️ 〰️",q:"Gelombang merambat dengan cepat rambat tetap. Jika frekuensi dibuat dua kali lipat oleh sumber, panjang gelombang menjadi …",a:["Dua kali","Empat kali","Setengah","Tetap"],c:2,e:"v = fλ. Jika v tetap dan f menjadi 2f, panjang gelombang harus menjadi λ/2."},
+{title:"Impuls",visual:"🏐 ✋",q:"Pemain menangkap bola yang sama dengan perubahan momentum sama, tetapi memperpanjang waktu kontak. Gaya rata-rata pada tangan …",a:["Membesar","Mengecil","Tetap pasti","Menjadi nol"],c:1,e:"J = F̄Δt = Δp. Untuk Δp sama, waktu kontak yang lebih lama menghasilkan gaya rata-rata lebih kecil."}
+];
+let gameIndex=0,gamePoints=0,gameAnswered={};
+function renderGame(){
+ const r=gameRounds[gameIndex];
+ $("gameRound").textContent=`Ronde ${gameIndex+1} dari ${gameRounds.length}`;
+ $("gameScore").textContent=`Skor: ${gamePoints}`;
+ $("gameTitle").textContent=r.title;$("gameVisual").textContent=r.visual;$("gameQuestion").textContent=r.q;
+ $("gameChoices").innerHTML=r.a.map((a,i)=>`<button class="game-choice" data-game-choice="${i}" ${gameAnswered[gameIndex]!==undefined?"disabled":""}>${String.fromCharCode(65+i)}. ${a}</button>`).join("");
+ const f=$("gameFeedback");f.classList.toggle("hide",gameAnswered[gameIndex]===undefined);
+ if(gameAnswered[gameIndex]!==undefined){let chosen=gameAnswered[gameIndex];f.innerHTML=`<b>${chosen===r.c?"Tepat!":"Coba pahami konsepnya."}</b> ${r.e}`;paintGameChoices(r,chosen)}else f.textContent="";
+ $("gameChoices").querySelectorAll("button").forEach(b=>b.onclick=()=>{if(gameAnswered[gameIndex]!==undefined)return;let chosen=+b.dataset.gameChoice;gameAnswered[gameIndex]=chosen;if(chosen===r.c)gamePoints++;renderGame()});
+}
+function paintGameChoices(r,chosen){$("gameChoices").querySelectorAll("button").forEach((b,i)=>{if(i===r.c)b.style.borderColor="var(--good)";if(i===chosen&&i!==r.c)b.style.borderColor="var(--bad)"})}
+$("gameNext").onclick=()=>{gameIndex=(gameIndex+1)%gameRounds.length;renderGame()};
+$("gameReset").onclick=()=>{gameIndex=0;gamePoints=0;gameAnswered={};renderGame()};
+
+// Offline daily rotation and quiz. Content rotates by local calendar date; it is not a live web feed.
+const dailyLessons=[
+{topic:"Kinematika",title:"Kemiringan grafik posisi–waktu",intro:"Grafik bukan sekadar gambar: kemiringannya memberi informasi tentang gerak.",formula:"v = Δx / Δt",conditions:"Kecepatan rata-rata adalah perpindahan dibagi selang waktu; kemiringan sesaat menyatakan kecepatan sesaat.",example:"Posisi berubah dari 2 m menjadi 14 m selama 4 s: v rata-rata = (14−2)/4 = 3 m/s.",q:"Posisi benda berubah dari 5 m ke 17 m selama 3 s. Kecepatan rata-ratanya …",a:["3 m/s","4 m/s","5 m/s","6 m/s"],c:1,e:"Perpindahan = 17−5 = 12 m. Kecepatan rata-rata = 12/3 = 4 m/s."},
+{topic:"Dinamika",title:"Resultan gaya menentukan perubahan gerak",intro:"Yang menentukan percepatan adalah resultan semua gaya, bukan satu gaya yang dilihat sendirian.",formula:"ΣF = ma",conditions:"Berlaku dalam kerangka acuan inersial; massa dalam kg dan resultan gaya dalam newton.",example:"Benda 4 kg menerima resultan gaya 12 N, sehingga percepatannya 12/4 = 3 m/s².",q:"Benda 2 kg mengalami resultan gaya 6 N. Berapa percepatannya?",a:["0,33 m/s²","3 m/s²","6 m/s²","12 m/s²"],c:1,e:"a = ΣF/m = 6/2 = 3 m/s²."},
+{topic:"Fluida",title:"Tekanan hidrostatis",intro:"Pada fluida diam, tekanan bertambah dengan kedalaman karena semakin banyak fluida berada di atas titik tersebut.",formula:"p = p₀ + ρgh",conditions:"Tekanan total termasuk tekanan permukaan p₀; ρ adalah massa jenis, g gravitasi, h kedalaman.",example:"Pada fluida yang sama, tekanan ukur hidrostatis pada kedalaman dua kali lebih besar juga menjadi dua kali.",q:"Jika kedalaman di dalam fluida yang sama menjadi tiga kali, tekanan ukur hidrostatis menjadi …",a:["Sepertiga","Tetap","Dua kali","Tiga kali"],c:3,e:"Tekanan ukur p_h = ρgh berbanding lurus dengan kedalaman h selama ρ dan g tetap."},
+{topic:"Gelombang",title:"Cepat rambat, frekuensi, dan panjang gelombang",intro:"Frekuensi adalah jumlah getaran per detik; panjang gelombang adalah jarak satu siklus gelombang.",formula:"v = fλ",conditions:"Jika cepat rambat tetap, frekuensi naik berarti panjang gelombang turun secara berbanding terbalik.",example:"Gelombang 5 Hz dengan panjang gelombang 2 m merambat dengan cepat 10 m/s.",q:"Gelombang merambat 18 m/s dengan frekuensi 6 Hz. Panjang gelombangnya …",a:["2 m","3 m","6 m","108 m"],c:1,e:"λ = v/f = 18/6 = 3 m."},
+{topic:"Kalor",title:"Kalor untuk perubahan suhu",intro:"Kalor yang diterima benda bergantung pada massa, kalor jenis, dan perubahan suhu jika tidak terjadi perubahan wujud.",formula:"Q = mcΔT",conditions:"Gunakan kalor jenis c untuk perubahan suhu tanpa perubahan wujud; saat berubah wujud, gunakan kalor laten.",example:"Benda 0,2 kg dengan c = 500 J/(kg·°C) naik 10°C menyerap 1.000 J.",q:"Benda 0,5 kg dengan c = 400 J/(kg·°C) naik 5°C. Kalor yang diserap …",a:["200 J","500 J","1.000 J","2.000 J"],c:2,e:"Q = 0,5 × 400 × 5 = 1.000 J."},
+{topic:"Kelistrikan",title:"Hukum Ohm",intro:"Untuk resistor ohmik pada kondisi fisik tetap, arus sebanding dengan tegangan dan berbanding terbalik dengan hambatan.",formula:"V = IR",conditions:"V dalam volt, I dalam ampere, R dalam ohm. Hubungan linear ini tidak berlaku universal untuk semua komponen.",example:"Tegangan 9 V pada resistor 3 Ω menghasilkan arus 3 A.",q:"Resistor 8 Ω dihubungkan pada 24 V. Arusnya …",a:["0,33 A","2 A","3 A","192 A"],c:2,e:"I = V/R = 24/8 = 3 A."},
+{topic:"Momentum",title:"Momentum dan impuls",intro:"Gaya yang bekerja selama selang waktu mengubah momentum benda.",formula:"J = Δp = F̄Δt",conditions:"Untuk gaya rata-rata, impuls sama dengan perubahan momentum. Jika Δp sama, waktu kontak lebih lama berarti gaya rata-rata lebih kecil.",example:"Menarik tangan ke belakang saat menangkap bola memperpanjang waktu kontak dan mengurangi gaya rata-rata.",q:"Perubahan momentum sama tetapi waktu kontak dibuat dua kali lebih lama. Gaya rata-rata menjadi …",a:["Dua kali","Setengah","Tetap","Empat kali"],c:1,e:"F̄ = Δp/Δt. Jika Δt menjadi dua kali, F̄ menjadi setengah."}
+];
+const dayNumber=Math.floor(new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()).getTime()/86400000);
+let dailyIndex=((dayNumber%dailyLessons.length)+dailyLessons.length)%dailyLessons.length,dailyAnswered=false;
+function renderDaily(){const d=dailyLessons[dailyIndex];$("dailyDate").textContent=new Date().toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"});$("dailyTopic").textContent=d.topic;$("dailyTitle").textContent=d.title;$("dailyIntro").textContent=d.intro;$("dailyFormula").textContent=d.formula;$("dailyConditions").textContent=d.conditions;$("dailyExample").textContent=d.example;$("dailyQuestion").textContent=d.q;$("dailyChoices").innerHTML=d.a.map((x,i)=>`<button class="daily-option" data-daily="${i}" ${dailyAnswered?"disabled":""}>${String.fromCharCode(65+i)}. ${x}</button>`).join("");$("dailyFeedback").classList.toggle("hide",!dailyAnswered);$("dailyProgress").textContent=dailyAnswered?"Kuis dijawab":"Belum dijawab";if(dailyAnswered)$ ("dailyFeedback").textContent=d.e;$("dailyChoices").querySelectorAll("button").forEach(b=>b.onclick=()=>{if(dailyAnswered)return;dailyAnswered=true;const selected=+b.dataset.daily;renderDaily();const buttons=$("dailyChoices").querySelectorAll("button");buttons.forEach((x,i)=>{if(i===d.c)x.style.borderColor="var(--good)";if(i===selected&&i!==d.c)x.style.borderColor="var(--bad)"});$("dailyFeedback").innerHTML=`<b>${selected===d.c?"Jawabanmu tepat.":"Belum tepat, coba perhatikan konsepnya."}</b> ${d.e}`})}
+$("dailyRetry").onclick=()=>{dailyAnswered=false;renderDaily()};$("dailyToSummary").onclick=()=>{$("summaryTopic").value=({"Kinematika":"kin","Dinamika":"din","Fluida":"flu","Gelombang":"gel","Kalor":"kal","Kelistrikan":"lis","Momentum":"din"})[dailyLessons[dailyIndex].topic]||"all";go("kesimpulan")};
+// Offline heuristic: checks completeness and key terms, not full scientific correctness.
+const summaryTerms={kin:["posisi","perpindahan","kecepatan","percepatan","waktu","grafik","glb","glbb"],din:["gaya","resultan","massa","percepatan","newton","momentum","impuls","tumbukan"],flu:["tekanan","massa jenis","kedalaman","archimedes","kontinuitas","bernoulli","debit","fluida"],gel:["frekuensi","panjang gelombang","cepat rambat","periode","bunyi","lensa","cermin","pembiasan"],kal:["kalor","suhu","massa","kalor jenis","perubahan wujud","termodinamika","energi","kelvin"],lis:["tegangan","arus","hambatan","ohm","daya","seri","paralel","kirchhoff"],all:["kinematika","dinamika","fluida","gelombang","kalor","kelistrikan","gaya","energi","grafik","asumsi"]};
+function getSummaryReview(){const topic=$("summaryTopic").value,txt=$("summaryText").value.trim(),low=txt.toLowerCase(),terms=summaryTerms[topic]||summaryTerms.all;if(txt.length<45){$("summaryResult").innerHTML="<b>Kesimpulan masih terlalu singkat.</b><p>Tulis beberapa kalimat tentang konsep utama, hubungan antarbesaran, dan satu kondisi atau contoh.</p>";$("summaryResult").classList.remove("hide");return}const found=terms.filter(t=>low.includes(t)),missed=terms.filter(t=>!low.includes(t)),checks=[1,2,3,4,5].filter(i=>$("sumCheck"+i).checked).length,cues=[];if(txt.length>=140)cues.push("Panjang tulisan cukup untuk ditinjau, tetapi panjang tidak menjamin kebenaran.");else cues.push("Pertimbangkan menambah penjelasan atau contoh.");if(found.length>=2)cues.push("Istilah terkait topik terdeteksi: "+found.join(", ") +".");else cues.push("Istilah inti yang terdeteksi masih sedikit; pastikan konsep utama dijelaskan jelas.");if(/karena|sehingga|berbanding|jika|maka|bergantung|syarat|asumsi/i.test(txt))cues.push("Kamu menyebut hubungan atau kondisi; pastikan penjelasannya sesuai hukum fisika.");else cues.push("Coba tambahkan alasan, hubungan antarbesaran, atau kondisi berlakunya rumus.");if(checks>=4)cues.push("Checklist refleksi menunjukkan "+checks+" dari 5 unsur diperiksa.");$("summaryResult").innerHTML=`<b>Pemeriksaan awal selesai — belum merupakan verifikasi kebenaran.</b><ul>${cues.map(x=>`<li>${x}</li>`).join("")}</ul><p><b>Istilah yang ditemukan:</b> ${found.length?found.join(", "):"belum ada yang terdeteksi"}</p><p><b>Istilah yang mungkin perlu diperiksa:</b> ${missed.length?missed.join(", "):"semua istilah dalam daftar pemeriksaan terdeteksi"}</p><p>Tekan <b>Salin untuk verifikasi ChatGPT</b>, lalu tempel tulisanmu ke chat ini agar klaim fisikanya diperiksa.</p>`;$("summaryResult").classList.remove("hide")}
+$("verifySummary").onclick=getSummaryReview;$("saveSummary").onclick=()=>{try{localStorage.setItem("pll_summary_topic",$("summaryTopic").value);localStorage.setItem("pll_summary_text",$("summaryText").value);localStorage.setItem("pll_summary_checks",JSON.stringify([1,2,3,4,5].map(i=>$("sumCheck"+i).checked)));$("summaryResult").innerHTML="<b>Kesimpulan tersimpan di browser ini.</b><p>Tersimpan lokal pada perangkat/browser yang sama, bukan di server.</p>";$("summaryResult").classList.remove("hide")}catch(e){alert("Penyimpanan lokal tidak tersedia pada browser ini.")}};
+$("copySummary").onclick=async()=>{const payload="Tolong verifikasi kesimpulan Fisika saya. Tandai setiap klaim sebagai benar, kurang lengkap, atau salah; jelaskan alasan dan berikan versi perbaikan tanpa mengubah gaya bahasa saya. Topik: "+$("summaryTopic").selectedOptions[0].text+"\n\nKesimpulan saya:\n"+$("summaryText").value;try{await navigator.clipboard.writeText(payload);$("summaryResult").innerHTML="<b>Teks sudah disalin.</b><p>Tempelkan ke chat ChatGPT untuk pemeriksaan konsep lengkap.</p>";$("summaryResult").classList.remove("hide")}catch(e){$("summaryResult").innerHTML="<b>Salin teks berikut secara manual ke chat ChatGPT:</b><pre style='white-space:pre-wrap'></pre>";$("summaryResult").querySelector("pre").textContent=payload;$("summaryResult").classList.remove("hide")}};
+try{const st=localStorage.getItem("pll_summary_text");if(st!==null){$("summaryText").value=st;$("summaryTopic").value=localStorage.getItem("pll_summary_topic")||"kin";const sc=JSON.parse(localStorage.getItem("pll_summary_checks")||"[]");sc.forEach((v,i)=>{if($("sumCheck"+(i+1)))$("sumCheck"+(i+1)).checked=!!v})}}catch(e){}
+
+
+const keywordData=[
+{topic:"Kinematika",term:"Berangkat dari keadaan diam",hint:"Kecepatan awal v₀ = 0 jika benar-benar dilepas tanpa dorongan awal.",concept:"Gerak lurus / GLBB"},
+{topic:"Kinematika",term:"Berhenti",hint:"Kecepatan akhir v = 0 pada saat benda berhenti.",concept:"Kecepatan dan percepatan"},
+{topic:"Kinematika",term:"Kecepatan konstan",hint:"Kecepatan tidak berubah, sehingga percepatan a = 0.",concept:"GLB; resultan gaya nol dalam kerangka inersial"},
+{topic:"Kinematika",term:"Dipercepat secara konstan",hint:"Percepatan tetap; tandanya mengikuti arah acuan yang dipilih.",concept:"GLBB"},
+{topic:"Kinematika",term:"Diperlambat",hint:"Kelajuan berkurang; jangan otomatis menganggap percepatan bernilai negatif tanpa menetapkan arah.",concept:"GLBB dan tanda v serta a"},
+{topic:"Kinematika",term:"Jatuh bebas",hint:"Jika benda dilepas, kecepatan awal nol dan gravitasi menjadi percepatan utama; hambatan udara diabaikan jika disebut atau diasumsikan.",concept:"Gerak vertikal"},
+{topic:"Kinematika",term:"Titik tertinggi",hint:"Pada gerak vertikal ke atas, kecepatan sesaat nol, tetapi percepatan gravitasi tetap ke bawah.",concept:"Gerak vertikal"},
+{topic:"Kinematika",term:"Jarak vs perpindahan",hint:"Jarak adalah panjang seluruh lintasan; perpindahan adalah perubahan posisi dari awal ke akhir.",concept:"Besaran gerak"},
+{topic:"Dinamika & gaya",term:"Resultan gaya",hint:"Jumlah vektor semua gaya; gunakan ΣF = ma.",concept:"Hukum II Newton"},
+{topic:"Dinamika & gaya",term:"Kecepatan konstan atau setimbang",hint:"Resultan gaya nol. Benda bisa diam atau bergerak lurus dengan kecepatan konstan.",concept:"Hukum I Newton"},
+{topic:"Dinamika & gaya",term:"Tepat akan bergerak / hampir tergelincir",hint:"Biasanya gaya gesek statis mencapai nilai maksimum fₛ maks = μₛN.",concept:"Gaya gesek"},
+{topic:"Dinamika & gaya",term:"Permukaan licin",hint:"Umumnya gaya gesek diabaikan, kecuali soal memberi informasi lain.",concept:"Diagram gaya dan Hukum Newton"},
+{topic:"Dinamika & gaya",term:"Tali tidak bermassa",hint:"Pada tali ideal, tegangan sama sepanjang tali; tetap perhatikan sistem dan katrolnya.",concept:"Tegangan tali"},
+{topic:"Dinamika & gaya",term:"Katrol licin",hint:"Gesekan pada poros diabaikan dalam model ideal.",concept:"Sistem katrol"},
+{topic:"Dinamika & gaya",term:"Gaya normal",hint:"Gaya kontak yang arahnya tegak lurus permukaan; tidak selalu sama dengan mg.",concept:"Diagram gaya"},
+{topic:"Usaha & energi",term:"Ketinggian terhadap acuan",hint:"Energi potensial gravitasi Eₚ = mgh untuk medan gravitasi seragam.",concept:"Energi potensial"},
+{topic:"Usaha & energi",term:"Pegas ditekan atau diregangkan",hint:"Energi potensial pegas Eₚ = ½kx² untuk pegas ideal.",concept:"Hukum Hooke dan energi pegas"},
+{topic:"Usaha & energi",term:"Tanpa gesekan",hint:"Energi mekanik dapat kekal jika tidak ada kerja nonkonservatif lain.",concept:"Kekekalan energi mekanik"},
+{topic:"Usaha & energi",term:"Usaha oleh gaya",hint:"Untuk gaya konstan, W = Fs cos θ; θ adalah sudut antara gaya dan perpindahan.",concept:"Usaha"},
+{topic:"Usaha & energi",term:"Kelajuan menjadi dua kali",hint:"Massa tetap: energi kinetik menjadi empat kali karena Eₖ = ½mv².",concept:"Energi kinetik"},
+{topic:"Momentum & impuls",term:"Tumbukan lenting sempurna",hint:"Momentum total dan energi kinetik total kekal pada sistem terisolasi.",concept:"Tumbukan"},
+{topic:"Momentum & impuls",term:"Menyatu setelah tumbukan",hint:"Kedua benda memiliki kecepatan akhir yang sama; momentum total kekal jika impuls eksternal diabaikan.",concept:"Tumbukan tidak lenting sama sekali"},
+{topic:"Momentum & impuls",term:"Memantul",hint:"Perhatikan perubahan arah kecepatan; perubahan momentum bisa lebih besar daripada saat benda hanya berhenti.",concept:"Impuls dan momentum"},
+{topic:"Momentum & impuls",term:"Gaya rata-rata selama selang waktu",hint:"Impuls I = Δp = F rata-rata × Δt.",concept:"Impuls"},
+{topic:"Fluida",term:"Kedalaman dari permukaan",hint:"Tekanan ukur hidrostatis p = ρgh; tekanan total juga mencakup tekanan permukaan p₀.",concept:"Tekanan hidrostatis"},
+{topic:"Fluida",term:"Terapung, melayang, tenggelam",hint:"Bandingkan gaya apung dengan berat benda atau massa jenis rata-rata benda dengan fluida.",concept:"Prinsip Archimedes"},
+{topic:"Fluida",term:"Luas penampang berbeda",hint:"Untuk aliran tunak fluida tak termampatkan, A₁v₁ = A₂v₂.",concept:"Persamaan kontinuitas"},
+{topic:"Fluida",term:"Pipa menyempit",hint:"Pada aliran ideal tak termampatkan, kecepatan cenderung meningkat di penampang yang lebih kecil.",concept:"Kontinuitas dan Bernoulli"},
+{topic:"Gelombang, bunyi & optik",term:"Frekuensi dan periode",hint:"Frekuensi f = 1/T; frekuensi adalah jumlah siklus per detik.",concept:"Gelombang"},
+{topic:"Gelombang, bunyi & optik",term:"Panjang gelombang",hint:"Jarak antara dua titik sefase berurutan; gunakan v = fλ.",concept:"Cepat rambat gelombang"},
+{topic:"Gelombang, bunyi & optik",term:"Sumber bunyi mendekati pengamat",hint:"Dalam efek Doppler, frekuensi terdengar biasanya meningkat jika sumber mendekat.",concept:"Efek Doppler"},
+{topic:"Gelombang, bunyi & optik",term:"Bayangan nyata atau maya",hint:"Bayangan nyata dapat ditangkap layar; bayangan maya tidak dapat ditangkap layar.",concept:"Cermin dan lensa"},
+{topic:"Gelombang, bunyi & optik",term:"Sudut datang sama dengan sudut pantul",hint:"Sudut diukur dari garis normal, bukan dari permukaan cermin.",concept:"Hukum pemantulan"},
+{topic:"Kalor & termodinamika",term:"Suhu naik atau turun",hint:"Tanpa perubahan wujud, gunakan Q = mcΔT.",concept:"Kalor sensibel"},
+{topic:"Kalor & termodinamika",term:"Melebur, membeku, mendidih",hint:"Saat perubahan wujud, gunakan Q = mL; suhu zat murni dapat tetap selama perubahan wujud pada tekanan tetap.",concept:"Kalor laten"},
+{topic:"Kalor & termodinamika",term:"Tidak ada kalor masuk atau keluar",hint:"Menunjukkan proses adiabatik, Q = 0.",concept:"Termodinamika"},
+{topic:"Kalor & termodinamika",term:"Suhu tetap / volume tetap / tekanan tetap",hint:"Berturut-turut: isotermal, isokhorik, dan isobarik.",concept:"Proses gas"},
+{topic:"Kelistrikan",term:"Rangkaian seri",hint:"Arus sama pada tiap komponen; hambatan pengganti dijumlahkan.",concept:"Rangkaian listrik"},
+{topic:"Kelistrikan",term:"Rangkaian paralel",hint:"Tegangan sama pada setiap cabang; arus terbagi di cabang.",concept:"Rangkaian listrik"},
+{topic:"Kelistrikan",term:"Daya listrik",hint:"Gunakan P = VI; untuk resistor ohmik dapat juga P = I²R atau P = V²/R.",concept:"Daya listrik"},
+{topic:"Kelistrikan",term:"Jarak antarmuatan",hint:"Gaya Coulomb berbanding terbalik dengan kuadrat jarak, F ∝ 1/r².",concept:"Elektrostatika"},
+{topic:"Kata yang menjebak",term:"Kelajuan vs kecepatan",hint:"Kelajuan hanya memiliki besar; kecepatan memiliki besar dan arah.",concept:"Definisi besaran"},
+{topic:"Kata yang menjebak",term:"Benda diam vs resultan gaya nol",hint:"Benda diam bisa memiliki resultan gaya nol; benda dengan kecepatan konstan juga resultan gayanya nol.",concept:"Hukum Newton"},
+{topic:"Kata yang menjebak",term:"Kata 'sebanding'",hint:"Pastikan apakah sebanding lurus atau berbanding terbalik. Jika y ∝ x², x digandakan membuat y menjadi empat kali.",concept:"Hubungan antarbesaran"},
+{topic:"Kata yang menjebak",term:"Sesaat sebelum menyentuh tanah",hint:"Gunakan kondisi tepat sebelum tumbukan; jangan otomatis menyamakan dengan kondisi setelah tumbukan.",concept:"Gerak dan tumbukan"}
+];
+function renderKeywords(){const q=(document.getElementById('keywordSearch').value||'').trim().toLowerCase(),cat=document.getElementById('keywordCategory').value;const rows=keywordData.filter(x=>(cat==='all'||x.topic===cat)&&(!q||(x.term+' '+x.hint+' '+x.concept+' '+x.topic).toLowerCase().includes(q)));document.getElementById('keywordCount').textContent=rows.length+' kata kunci ditemukan';document.getElementById('keywordResults').innerHTML=rows.length?rows.map(x=>`<article class="keyword-card"><div class="keyword-topic">${x.topic}</div><h3>${x.term}</h3><p>${x.hint}</p><p class="keyword-hint"><b>Konsep terkait:</b> ${x.concept}</p></article>`).join(''):'<p class="muted">Belum ada hasil. Coba kata lain atau pilih “Semua topik”.</p>'}
+document.getElementById('keywordSearch').addEventListener('input',renderKeywords);document.getElementById('keywordCategory').addEventListener('change',renderKeywords);renderKeywords();
+
+const motivationLines=[
+  ["Kamu nggak harus sempurna; kamu perlu konsisten.","Satu konsep yang benar-benar kamu pahami lebih berharga daripada banyak rumus yang cuma dihafal."],
+  ["Calon engineer belajar bertanya: kenapa ini terjadi, dan bagaimana cara memperbaikinya?","Pakai rasa ingin tahumu untuk memahami masalah, bukan cuma mengejar jawaban."],
+  ["Tujuan besar dibangun dari sesi belajar kecil yang diulang.","Mulai 20–25 menit. Jauhkan distraksi, fokus pada satu hal, lalu istirahat."],
+  ["Kesalahan bukan bukti kamu nggak mampu; itu petunjuk bagian mana yang perlu dilatih.","Catat pola salahmu dan coba lagi dengan strategi yang lebih jelas."],
+  ["Sains yang kuat dimulai dari rasa ingin tahu dan bukti.","Biasakan bertanya, mengamati data, menguji ide, dan menjelaskan kesimpulan dengan alasan."],
+  ["Kamu boleh pelan, selama kamu tetap bergerak.","Bandingkan progresmu dengan dirimu yang kemarin, bukan dengan perjalanan orang lain."],
+  ["Mimpi masuk UI boleh besar; langkah hari ini cukup dibuat nyata.","Pilih satu tugas kecil yang bisa kamu selesaikan hari ini, lalu beri dirimu kredit karena sudah berusaha."]
+];
+function renderMotivation(){const now=new Date();const day=Math.floor(new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime()/86400000);const idx=((day%motivationLines.length)+motivationLines.length)%motivationLines.length;const pick=motivationLines[(idx+(window.motivationOffset||0))%motivationLines.length];$('motivationDate').textContent=now.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('motivationQuote').textContent='“'+pick[0]+'”';$('motivationNote').textContent=pick[1]}
+$('newMotivation').onclick=()=>{window.motivationOffset=((window.motivationOffset||0)+1)%motivationLines.length;renderMotivation()};
+try{document.querySelectorAll('[data-uigoal]').forEach(el=>{el.checked=localStorage.getItem('ui_goal_'+el.dataset.uigoal)==='1';el.addEventListener('change',()=>{try{localStorage.setItem('ui_goal_'+el.dataset.uigoal,el.checked?'1':'0')}catch(e){}})})}catch(e){}
+renderMotivation();
+renderCards();renderTabs();renderTopic();renderSteps();renderLevels();renderQuestion();renderSymbols();renderChecklist();updateStats();renderGame();renderDaily();
+</script>
+</body>
+</html>
